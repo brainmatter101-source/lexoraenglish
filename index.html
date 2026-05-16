@@ -1,1065 +1,895 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lexora English Academy — Language Engineered Through Memory Science</title>
-  <meta name="description" content="Lexora English Academy combines mnemonic learning, cognitive retention, and modern psychology to help you master English naturally and confidently." />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            playfair: ['"Playfair Display"', 'Georgia', 'serif'],
-            dm: ['"DM Sans"', 'sans-serif'],
-          },
-          colors: {
-            gold: '#d4af37',
-            'gold-light': '#f5e27a',
-            'gold-dark': '#b8942e',
-            ink: '#080808',
-            'ink-2': '#0c0c0c',
-            'ink-3': '#0a0a0a',
-          },
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* ── Base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: #080808; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
-
-    /* ── Gold gradient text ── */
-    .gold-text {
-      background: linear-gradient(135deg, #d4af37 0%, #f5e27a 50%, #b8942e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── Scroll-reveal animation ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-d1 { transition-delay: 0.08s; }
-    .reveal-d2 { transition-delay: 0.16s; }
-    .reveal-d3 { transition-delay: 0.24s; }
-    .reveal-d4 { transition-delay: 0.32s; }
-    .reveal-d5 { transition-delay: 0.40s; }
-    .reveal-d6 { transition-delay: 0.48s; }
-
-    /* ── Keyframe animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulse-orb {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-      50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.3; }
-    }
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.5; transform: scaleY(1); }
-      50%       { opacity: 1; transform: scaleY(1.4); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-8px); }
-    }
-
-    .anim-fadeup-1 { animation: fadeUp 0.9s ease 0.1s both; }
-    .anim-fadeup-2 { animation: fadeUp 0.9s ease 0.25s both; }
-    .anim-fadeup-3 { animation: fadeUp 0.9s ease 0.4s both; }
-    .anim-fadeup-4 { animation: fadeUp 0.9s ease 0.55s both; }
-    .anim-fadeup-5 { animation: fadeUp 0.9s ease 0.7s both; }
-
-    /* ── Nav ── */
-    #main-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 5%;
-      transition: background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
-    }
-    #main-nav.scrolled {
-      background: rgba(8, 8, 8, 0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-    .logo-mark {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: linear-gradient(135deg, #d4af37, #f5e27a);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #080808;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px;
-      letter-spacing: 0.02em; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #d4af37; }
-
-    /* ── Mobile nav ── */
-    #mobile-menu {
-      display: none;
-      background: rgba(8,8,8,0.97);
-      border-top: 1px solid rgba(212,175,55,0.15);
-      padding: 20px 5% 24px;
-    }
-    #mobile-menu a {
-      display: block; color: rgba(255,255,255,0.75); text-decoration: none;
-      font-size: 16px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    #mobile-menu.open { display: block; }
-
-    /* burger lines */
-    .burger-line {
-      width: 24px; height: 2px; background: #d4af37;
-      border-radius: 2px; transition: all 0.3s;
-    }
-    #burger.open .burger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    #burger.open .burger-line:nth-child(2) { opacity: 0; }
-    #burger.open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    /* ── Hero ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-      padding: 120px 5% 80px;
-      text-align: center;
-      background: #080808;
-    }
-    .hero-orb-mouse {
-      position: absolute; width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,175,55,0.13) 0%, transparent 70%);
-      pointer-events: none;
-      transition: top 1.6s ease, left 1.6s ease;
-      animation: pulse-orb 6s ease-in-out infinite;
-    }
-    .hero-orb-center {
-      position: absolute; width: 800px; height: 800px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%);
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none;
-      animation: pulse-orb 8s ease-in-out infinite reverse;
-    }
-    .hero-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(212,175,55,0.08);
-      border: 1px solid rgba(212,175,55,0.25);
-      border-radius: 100px; padding: 6px 18px;
-    }
-    .badge-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: #d4af37;
-      animation: blink 2s infinite;
-    }
-    .hero-h1-main {
-      font-size: clamp(42px, 7vw, 88px);
-      font-family: 'Playfair Display', serif; font-weight: 900;
-      color: #fff; line-height: 1.05;
-    }
-    .hero-h1-gold {
-      font-size: clamp(42px, 7vw, 88px);
-      font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;
-      display: block;
-    }
-    .scroll-line {
-      width: 1px; height: 48px;
-      background: linear-gradient(to bottom, rgba(212,175,55,0.5), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-
-    /* ── Stat cards ── */
-    .stat-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid rgba(212,175,55,0.15);
-      border-radius: 16px; padding: 36px 28px; text-align: center;
-      position: relative; overflow: hidden;
-      transition: border-color 0.4s, background 0.4s;
-      cursor: default;
-    }
-    .stat-card:hover {
-      border-color: rgba(212,175,55,0.4);
-      background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02));
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif; font-weight: 900;
-      font-size: clamp(38px, 5vw, 56px); color: #d4af37; line-height: 1;
-    }
-
-    /* ── Method cards ── */
-    .method-card {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px; padding: 32px 28px;
-      transition: all 0.4s; cursor: default;
-    }
-    .method-card:hover {
-      background: rgba(212,175,55,0.06);
-      border-color: rgba(212,175,55,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(212,175,55,0.08);
-    }
-
-    /* ── Transformation grid ── */
-    .transform-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .before-card {
-      background: rgba(255,50,50,0.04);
-      border: 1px solid rgba(255,80,80,0.15);
-      border-radius: 20px; padding: 40px 36px;
-    }
-    .after-card {
-      background: rgba(212,175,55,0.04);
-      border: 1px solid rgba(212,175,55,0.2);
-      border-radius: 20px; padding: 40px 36px;
-    }
-    .transform-dot-red  { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,100,100,0.5); margin-top: 7px; flex-shrink: 0; }
-    .transform-dot-gold { width: 6px; height: 6px; border-radius: 50%; background: #d4af37; margin-top: 7px; flex-shrink: 0; }
-    .icon-circle-red  { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,80,80,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-    .icon-circle-gold { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,175,55,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-
-    /* ── Course cards ── */
-    .course-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; padding: 32px 28px 28px;
-      display: flex; flex-direction: column;
-      transition: all 0.4s; cursor: default; height: 100%;
-    }
-    .course-card:hover {
-      border-color: rgba(212,175,55,0.35);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.1);
-      background: linear-gradient(145deg, rgba(212,175,55,0.07), rgba(255,255,255,0.02));
-    }
-    .course-tag {
-      background: rgba(212,175,55,0.12); color: #d4af37;
-      padding: 4px 12px; border-radius: 100px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
-    }
-    .course-cta {
-      display: block; text-align: center;
-      background: rgba(212,175,55,0.1); color: #d4af37;
-      padding: 11px 0; border-radius: 8px; font-weight: 600;
-      font-size: 13px; text-decoration: none; letter-spacing: 0.04em;
-      border: 1px solid rgba(212,175,55,0.2);
-      transition: all 0.3s;
-    }
-    .course-cta:hover {
-      background: rgba(212,175,55,0.2);
-      border-color: rgba(212,175,55,0.4);
-    }
-
-    /* ── Testimonial cards ── */
-    .testi-card {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 32px 28px;
-      transition: all 0.4s;
-    }
-    .testi-card:hover {
-      border-color: rgba(212,175,55,0.3);
-      transform: translateY(-4px);
-    }
-    .testi-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, #d4af37, #b8942e);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: #080808;
-      flex-shrink: 0;
-    }
-
-    /* ── CTA section ── */
-    .cta-grid-bg {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #d4af37, #b8942e);
-      color: #080808; font-weight: 800; text-decoration: none;
-      border-radius: 10px; letter-spacing: 0.04em;
-      box-shadow: 0 0 60px rgba(212,175,55,0.35);
-      transition: box-shadow 0.3s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      box-shadow: 0 0 80px rgba(212,175,55,0.55);
-      transform: translateY(-1px);
-    }
-    .btn-secondary {
-      background: transparent; color: #fff;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px; text-decoration: none; font-weight: 500;
-      transition: all 0.3s; display: inline-block;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(212,175,55,0.3);
-    }
-
-    /* ── WhatsApp float ── */
-    #wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 200;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-      transition: all 0.3s; text-decoration: none;
-    }
-    #wa-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 32px rgba(37,211,102,0.55);
-    }
-
-    /* ── Footer ── */
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-    }
-    .footer-link {
-      display: block; color: rgba(255,255,255,0.35); font-size: 14px;
-      text-decoration: none; margin-bottom: 12px; transition: color 0.2s;
-    }
-    .footer-link:hover { color: rgba(255,255,255,0.8); }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; text-decoration: none; transition: all 0.3s;
-    }
-    .social-btn:hover {
-      background: rgba(212,175,55,0.1);
-      border-color: rgba(212,175,55,0.3);
-    }
-
-    /* ── Section label ── */
-    .section-label {
-      color: #d4af37; font-size: 11px; letter-spacing: 0.2em;
-      text-transform: uppercase; font-weight: 500;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta-btn { display: none !important; }
-      #burger { display: flex !important; }
-      .transform-grid { grid-template-columns: 1fr !important; }
-      .footer-grid { grid-template-columns: 1fr 1fr !important; }
-      .footer-grid > div:first-child { grid-column: 1 / -1; }
-    }
-    @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr !important; }
-      .hero-orb-mouse { width: 300px; height: 300px; }
-      .before-card, .after-card { padding: 28px 22px; }
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- ══════════════════════════════════════════════
-     NAV
-════════════════════════════════════════════════ -->
-<nav id="main-nav">
-  <div class="nav-inner">
-    <!-- Logo -->
-    <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-      <div class="logo-mark">L</div>
-      <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;letter-spacing:-0.3px;">Lexora</span>
-    </a>
-
-    <!-- Desktop links -->
-    <div class="nav-links" style="display:flex;align-items:center;gap:36px;">
-      <a href="#method">Method</a>
-      <a href="#courses">Courses</a>
-      <a href="#transformation">Transformation</a>
-      <a href="#testimonials">Testimonials</a>
-    </div>
-    <a href="https://wa.me/94XXXXXXXXX" class="nav-cta-btn"
-       style="background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:9px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.04em;">
-      Enroll Now
-    </a>
-
-    <!-- Burger -->
-    <button id="burger" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;" aria-label="Menu">
-      <div class="burger-line"></div>
-      <div class="burger-line"></div>
-      <div class="burger-line"></div>
-    </button>
-  </div>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu">
-    <a href="#method"         onclick="closeMobile()">Method</a>
-    <a href="#courses"        onclick="closeMobile()">Courses</a>
-    <a href="#transformation" onclick="closeMobile()">Transformation</a>
-    <a href="#testimonials"   onclick="closeMobile()">Testimonials</a>
-    <a href="https://wa.me/94XXXXXXXXX"
-       style="margin-top:18px;background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:13px 22px;border-radius:8px;font-weight:700;font-size:15px;text-align:center;border:none;">
-      Enroll Now
-    </a>
-  </div>
-</nav>
-
-
-<!-- ══════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════ -->
-<section id="hero">
-  <!-- Orbs -->
-  <div class="hero-orb-mouse" id="hero-orb" style="top:calc(50% - 300px);left:calc(50% - 300px);"></div>
-  <div class="hero-orb-center"></div>
-  <div class="hero-grid"></div>
-
-  <div style="position:relative;z-index:2;max-width:900px;width:100%;">
-
-    <!-- Badge -->
-    <div class="hero-badge anim-fadeup-1" style="margin-bottom:32px;">
-      <div class="badge-dot"></div>
-      <span style="color:#d4af37;font-size:12px;letter-spacing:0.15em;font-weight:500;text-transform:uppercase;">
-        Memory Science · Language Engineering
-      </span>
-    </div>
-
-    <!-- Headline -->
-    <h1 class="anim-fadeup-2" style="margin:0 0 24px;">
-      <span class="hero-h1-main">English Designed</span><br>
-      <span class="hero-h1-gold gold-text">for the Brain.</span>
-    </h1>
-
-    <!-- Sub -->
-    <p class="anim-fadeup-3"
-       style="color:rgba(255,255,255,0.55);font-size:clamp(16px,2.2vw,20px);line-height:1.7;max-width:640px;margin:0 auto 44px;font-weight:300;">
-      Lexora combines mnemonic learning, cognitive retention, and modern psychology to help you retain, recall, and speak English naturally — faster than any traditional method.
-    </p>
-
-    <!-- CTA buttons -->
-    <div class="anim-fadeup-4" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-      <a href="#courses" class="btn-primary" style="padding:15px 34px;font-size:15px;font-family:'DM Sans',sans-serif;">
-        Start Learning
-      </a>
-      <a href="https://wa.me/94XXXXXXXXX"
-         style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);color:#fff;padding:15px 34px;border-radius:10px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s;"
-         onmouseenter="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(212,175,55,0.35)'"
-         onmouseleave="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)'">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Us
-      </a>
-    </div>
-
-    <!-- Scroll hint -->
-    <div class="anim-fadeup-5" style="margin-top:72px;display:flex;flex-direction:column;align-items:center;gap:8px;">
-      <span style="color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;">Discover the Method</span>
-      <div class="scroll-line"></div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     TRUST / STATS
-════════════════════════════════════════════════ -->
-<section style="background:#0c0c0c;padding:100px 5%;border-top:1px solid rgba(212,175,55,0.08);border-bottom:1px solid rgba(212,175,55,0.08);">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div class="reveal" style="text-align:center;margin-bottom:64px;">
-      <span class="section-label">Credibility</span>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4vw,44px);color:#fff;margin:12px 0 0;">
-        Trusted by Ambitious Learners
-      </h2>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
-
-      <div class="stat-card reveal reveal-d1">
-        <div class="stat-num"><span class="counter" data-target="500" data-suffix="+">0+</span></div>
-        <div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">Students Guided</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:13px;">Across universities &amp; schools</div>
-        <div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-      </div>
-
-      <div class="stat-card reveal reveal-d2">
-        <div class="stat-num"><span class="counter" data-target="98" data-suffix="%">0%</span></div>
-        <div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">Retention Rate</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:13px;">Via memory science methods</div>
-        <div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-      </div>
-
-      <div class="stat-card reveal reveal-d3">
-        <div class="stat-num"><span class="counter" data-target="12" data-suffix="+">0+</span></div>
-        <div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">Years Teaching</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:13px;">TESL university-level expertise</div>
-        <div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-      </div>
-
-      <div class="stat-card reveal reveal-d4">
-        <div class="stat-num"><span class="counter" data-target="6" data-suffix="">0</span></div>
-        <div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">Core Methods</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:13px;">Cognitive &amp; mnemonic systems</div>
-        <div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     MEMORY SCIENCE
-════════════════════════════════════════════════ -->
-<section id="method" style="background:#080808;padding:120px 5%;">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div class="reveal" style="max-width:640px;margin-bottom:72px;">
-      <span class="section-label">The Lexora Method</span>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 18px;line-height:1.1;">
-        Language Engineered<br>
-        <em class="gold-text">Through Memory Science</em>
-      </h2>
-      <p style="color:rgba(255,255,255,0.5);font-size:16px;line-height:1.75;font-weight:300;">
-        Traditional methods teach English. Lexora engineers it. Every technique is grounded in cognitive neuroscience and applied learning psychology.
-      </p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-
-      <div class="method-card reveal reveal-d1">
-        <div style="font-size:32px;margin-bottom:18px;">🧠</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Mnemonic Architecture</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">We build memory palaces around vocabulary so words stick permanently — linked to vivid mental images, not rote repetition.</p>
-      </div>
-
-      <div class="method-card reveal reveal-d2">
-        <div style="font-size:32px;margin-bottom:18px;">🔁</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Spaced Repetition System</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Lexora's review cycles are calibrated to the forgetting curve, ensuring vocabulary is reinforced exactly before it fades.</p>
-      </div>
-
-      <div class="method-card reveal reveal-d3">
-        <div style="font-size:32px;margin-bottom:18px;">🗣️</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Active Recall Speaking</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Instead of passive listening, every session forces retrieval — training your brain to pull English out naturally under pressure.</p>
-      </div>
-
-      <div class="method-card reveal reveal-d4">
-        <div style="font-size:32px;margin-bottom:18px;">🔗</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Association Networks</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">New words are connected to existing concepts, creating semantic webs that make recall automatic and effortless.</p>
-      </div>
-
-      <div class="method-card reveal reveal-d5">
-        <div style="font-size:32px;margin-bottom:18px;">🎯</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Contextual Encoding</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Language is embedded in real-world scenarios — interviews, presentations, casual conversations — for immediate practical recall.</p>
-      </div>
-
-      <div class="method-card reveal reveal-d6">
-        <div style="font-size:32px;margin-bottom:18px;">⚡</div>
-        <h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">Accelerated Acquisition</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Combining chunking, interleaving, and pattern recognition to compress years of natural acquisition into months.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     TRANSFORMATION
-════════════════════════════════════════════════ -->
-<section id="transformation" style="background:#0a0a0a;padding:120px 5%;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.04) 0%, transparent 70%);pointer-events:none;"></div>
-
-  <div style="max-width:1200px;margin:0 auto;position:relative;">
-
-    <div class="reveal" style="text-align:center;margin-bottom:72px;">
-      <span class="section-label">The Shift</span>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
-        From Struggling to<br><em class="gold-text">Unstoppable</em>
-      </h2>
-    </div>
-
-    <div class="transform-grid">
-
-      <!-- Before -->
-      <div class="before-card reveal reveal-d1">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-          <div class="icon-circle-red">✗</div>
-          <span style="font-weight:700;font-size:18px;color:rgba(255,120,120,0.9);">Before Lexora</span>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">Freezing mid-sentence in conversations</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">Memorizing grammar rules without retention</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">Mentally translating from your native language</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">Vocabulary forgotten within days</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">Fear of being judged for mistakes</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">No confidence in interviews or presentations</span></div>
-      </div>
-
-      <!-- After -->
-      <div class="after-card reveal reveal-d2">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-          <div class="icon-circle-gold">✓</div>
-          <span style="font-weight:700;font-size:18px;color:#d4af37;">With Lexora</span>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Expressing ideas fluently and naturally</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Recalling words and phrases instantly</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Thinking directly in English</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Vocabulary retained for life through mnemonics</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Speaking with authority and presence</span></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">Winning interviews, presentations, global opportunities</span></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     COURSES
-════════════════════════════════════════════════ -->
-<section id="courses" style="background:#080808;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;">
-      <div>
-        <span class="section-label">Programmes</span>
-        <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
-          Engineered for<br><em class="gold-text">Your Ambition</em>
-        </h2>
-      </div>
-      <a href="https://wa.me/94XXXXXXXXX"
-         style="color:#d4af37;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:0.04em;border-bottom:1px solid rgba(212,175,55,0.4);padding-bottom:2px;">
-        View All Programmes →
-      </a>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
-
-      <div class="course-card reveal reveal-d1">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">Flagship</span><span style="font-size:28px;">💬</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Spoken English Mastery</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">Memory-based speaking training that eliminates hesitation and builds natural fluency through active recall and real conversations.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 12 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 All Levels</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-      <div class="course-card reveal reveal-d2">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">Popular</span><span style="font-size:28px;">📚</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Academic English</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">University-grade writing, reading comprehension, and academic expression for competitive examinations and higher education.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 10 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 Intermediate</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-      <div class="course-card reveal reveal-d3">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">Career</span><span style="font-size:28px;">💼</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Professional Communication</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">Workplace English, email writing, negotiation language, and boardroom-level communication for career advancement.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 8 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 Intermediate+</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-      <div class="course-card reveal reveal-d4">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">High Impact</span><span style="font-size:28px;">🎯</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Interview Confidence</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">Targeted preparation combining vocabulary recall, structured responses, and psychological confidence frameworks.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 4 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 All Levels</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-      <div class="course-card reveal reveal-d5">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">Skills</span><span style="font-size:28px;">🎤</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Presentation Mastery</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">Command a room. Structure ideas powerfully, eliminate filler language, and deliver with executive-level confidence.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 6 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 Intermediate</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-      <div class="course-card reveal reveal-d6">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-          <span class="course-tag">Foundation</span><span style="font-size:28px;">🧩</span>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Memory Vocabulary System</h3>
-        <p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">2000 high-frequency words encoded through mnemonic architecture — retained for life, recalled in seconds.</p>
-        <div style="display:flex;gap:16px;margin-bottom:24px;">
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">⏱ 8 Weeks</span>
-          <span style="color:rgba(255,255,255,0.35);font-size:12px;">📊 Beginner+</span>
-        </div>
-        <a href="https://wa.me/94XXXXXXXXX" class="course-cta">Enquire Now</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     TESTIMONIALS
-════════════════════════════════════════════════ -->
-<section id="testimonials" style="background:#0c0c0c;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div class="reveal" style="text-align:center;margin-bottom:64px;">
-      <span class="section-label">Student Stories</span>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,4vw,48px);color:#fff;margin:14px 0 0;">
-        Real Transformations.<br><em class="gold-text">Genuine Results.</em>
-      </h2>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
-
-      <div class="testi-card reveal reveal-d1">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">I always knew grammar but froze when speaking. Lexora's mnemonic approach completely changed how my brain processes English. Three months in — I'm presenting confidently in university seminars.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">T</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Tharushi P.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">University Student, Colombo</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-d2">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">The memory-based vocabulary system is unlike anything I've tried. Words I learned through their association method still feel fresh six months later. My emails and presentations are at a completely different level.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">K</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Kavinda R.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">Marketing Professional</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-d3">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">I was terrified of English interviews. The interview confidence module gave me actual frameworks, not just vocabulary lists. I secured my first professional role within weeks of completing the course.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">D</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Dilukshi M.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">School Leaver, Jaffna</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-d4">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">What I expected was a typical spoken English class. What I got was a complete cognitive rewiring. I think in English now — not translate. Worth every rupee.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">A</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Amesh S.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">IT Professional</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-d5">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">My English teacher at school was good, but Lexora operates on a completely different plane. The science behind how they teach vocabulary and speaking is genuinely revolutionary.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">N</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Nimesha W.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">A/L Student</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testi-card reveal reveal-d6">
-        <div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">Premium is the only word. The method, the materials, the structured progression — it all signals this is engineered for serious learners. My global client communication has transformed.</p>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="testi-avatar">R</div>
-          <div>
-            <div style="color:#fff;font-weight:600;font-size:14px;">Rajith F.</div>
-            <div style="color:rgba(255,255,255,0.35);font-size:12px;">Entrepreneur</div>
-          </div>
-          <div style="margin-left:auto;color:#d4af37;font-size:12px;">★★★★★</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     FINAL CTA
-════════════════════════════════════════════════ -->
-<section style="background:#080808;padding:140px 5%;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);pointer-events:none;"></div>
-  <div class="cta-grid-bg"></div>
-
-  <div style="position:relative;max-width:800px;margin:0 auto;">
-    <div class="reveal">
-
-      <div class="hero-badge" style="margin-bottom:36px;display:inline-flex;">
-        <span style="color:#d4af37;font-size:12px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">Begin Your Transformation</span>
-      </div>
-
-      <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,6vw,72px);color:#fff;margin:0 0 24px;line-height:1.05;">
-        Train Your Brain.<br>
-        <em class="gold-text">Transform Your English.</em>
-      </h2>
-
-      <p style="color:rgba(255,255,255,0.5);font-size:clamp(15px,2vw,19px);line-height:1.7;font-weight:300;margin:0 auto 52px;max-width:520px;">
-        The future of English learning starts the moment you decide to engineer your language — not just study it.
-      </p>
-
-      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-        <a href="https://wa.me/94XXXXXXXXX" class="btn-primary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
-          Enroll Now — Join Lexora
-        </a>
-        <a href="#courses" class="btn-secondary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
-          Explore Programmes
-        </a>
-      </div>
-
-      <p style="color:rgba(255,255,255,0.2);font-size:12px;margin-top:32px;letter-spacing:0.05em;">
-        No obligation · WhatsApp for instant response · Limited seats per cohort
-      </p>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════ -->
-<footer style="background:#060606;border-top:1px solid rgba(212,175,55,0.1);padding:80px 5% 40px;">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <div class="footer-grid" style="margin-bottom:72px;">
-
-      <!-- Brand col -->
-      <div>
-        <a href="#" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px;">
-          <div class="logo-mark">L</div>
-          <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;">Lexora</span>
-        </a>
-        <p style="color:rgba(255,255,255,0.35);font-size:14px;line-height:1.75;font-weight:300;max-width:280px;margin:0 0 24px;">
-          Language engineered through memory science. A premium cognitive learning system for ambitious English learners in Sri Lanka and beyond.
-        </p>
-        <div style="display:flex;gap:12px;">
-          <a href="#" class="social-btn" title="WhatsApp">📱</a>
-          <a href="#" class="social-btn" title="Instagram">📸</a>
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-        </div>
-      </div>
-
-      <!-- Programme col -->
-      <div>
-        <h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">Programme</h4>
-        <a href="#courses" class="footer-link">Spoken English</a>
-        <a href="#courses" class="footer-link">Academic English</a>
-        <a href="#courses" class="footer-link">Professional Communication</a>
-        <a href="#courses" class="footer-link">Interview Confidence</a>
-      </div>
-
-      <!-- Company col -->
-      <div>
-        <h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">Company</h4>
-        <a href="#" class="footer-link">About Lexora</a>
-        <a href="#method" class="footer-link">The Method</a>
-        <a href="#" class="footer-link">Our Philosophy</a>
-        <a href="#testimonials" class="footer-link">Student Stories</a>
-      </div>
-
-      <!-- Connect col -->
-      <div>
-        <h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">Connect</h4>
-        <a href="https://wa.me/94XXXXXXXXX" class="footer-link">WhatsApp</a>
-        <a href="#" class="footer-link">Instagram</a>
-        <a href="#" class="footer-link">Facebook</a>
-        <a href="mailto:hello@lexora.lk" class="footer-link">Email Us</a>
-      </div>
-
-    </div>
-
-    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
-      <span style="color:rgba(255,255,255,0.2);font-size:13px;">© 2025 Lexora English Academy. All rights reserved.</span>
-      <span style="color:rgba(255,255,255,0.2);font-size:13px;font-style:italic;">Language Engineered Through Memory Science™</span>
-    </div>
-
-  </div>
-</footer>
-
-
-<!-- ══════════════════════════════════════════════
-     WHATSAPP FLOAT
-════════════════════════════════════════════════ -->
-<a id="wa-float" href="https://wa.me/94XXXXXXXXX" title="Chat on WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
-
-
-<!-- ══════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════════ -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lexora English Academy — මතක විද්‍යාව තුළින් නිර්මාණය වූ භාෂා පුහුණුව</title>
+<meta name="description" content="Lexora English Academy විසින් මතක තබා ගැනීමේ ශිල්පීය ක්‍රම, සංජානන රඳවා තබා ගැනීම සහ නවීන මනෝවිද්‍යාව ඒකාබද්ධ කරමින් ඔබට ස්වභාවිකව සහ විශ්වාසයෙන් යුතුව ඉංග්‍රීසි හැසිරවීමට මග පෙන්වයි." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script>
-  /* ── Nav: scroll effect + burger ── */
-  const nav = document.getElementById('main-nav');
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-
-  function closeMobile() {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
-
-  /* ── Hero: mouse-tracking orb ── */
-  const heroOrb = document.getElementById('hero-orb');
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth) * 100;
-    const y = (e.clientY / window.innerHeight) * 100;
-    heroOrb.style.left = `calc(${x}% - 300px)`;
-    heroOrb.style.top  = `calc(${y}% - 300px)`;
-  });
-
-  /* ── Scroll-reveal (IntersectionObserver) ── */
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  reveals.forEach(el => revealObs.observe(el));
-
-  /* ── Animated counters ── */
-  const counters = document.querySelectorAll('.counter');
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const step = Math.ceil(target / (duration / 16));
-      let current = 0;
-
-      counterObs.unobserve(el);
-
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = current + suffix;
-      }, 16);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(el => counterObs.observe(el));
-
-  /* ── Smooth scroll for anchor links ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+dm: ['"DM Sans"', 'sans-serif'],
+},
+colors: {
+gold: '#d4af37',
+'gold-light': '#f5e27a',
+'gold-dark': '#b8942e',
+ink: '#080808',
+'ink-2': '#0c0c0c',
+'ink-3': '#0a0a0a',
+},
+}
+}
+}
 </script>
-
+<style>
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #080808; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+/* ── Gold gradient text ── */
+.gold-text {
+background: linear-gradient(135deg, #d4af37 0%, #f5e27a 50%, #b8942e 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+/* ── Scroll-reveal animation ── */
+.reveal {
+opacity: 0;
+transform: translateY(32px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+.reveal-d6 { transition-delay: 0.48s; }
+/* ── Keyframe animations ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(28px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-orb {
+0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+}
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50%       { opacity: 0.3; }
+}
+@keyframes scrollLine {
+0%, 100% { opacity: 0.5; transform: scaleY(1); }
+50%       { opacity: 1; transform: scaleY(1.4); }
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50%       { transform: translateY(-8px); }
+}
+.anim-fadeup-1 { animation: fadeUp 0.9s ease 0.1s both; }
+.anim-fadeup-2 { animation: fadeUp 0.9s ease 0.25s both; }
+.anim-fadeup-3 { animation: fadeUp 0.9s ease 0.4s both; }
+.anim-fadeup-4 { animation: fadeUp 0.9s ease 0.55s both; }
+.anim-fadeup-5 { animation: fadeUp 0.9s ease 0.7s both; }
+/* ── Nav ── */
+#main-nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+padding: 0 5%;
+transition: background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
+}
+#main-nav.scrolled {
+background: rgba(8, 8, 8, 0.92);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+.nav-inner {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 72px;
+}
+.logo-mark {
+width: 36px; height: 36px; border-radius: 8px;
+background: linear-gradient(135deg, #d4af37, #f5e27a);
+display: flex; align-items: center; justify-content: center;
+font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #080808;
+}
+.nav-links a {
+color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px;
+letter-spacing: 0.02em; transition: color 0.2s;
+}
+.nav-links a:hover { color: #d4af37; }
+/* ── Mobile nav ── */
+#mobile-menu {
+display: none;
+background: rgba(8,8,8,0.97);
+border-top: 1px solid rgba(212,175,55,0.15);
+padding: 20px 5% 24px;
+}
+#mobile-menu a {
+display: block; color: rgba(255,255,255,0.75); text-decoration: none;
+font-size: 16px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+#mobile-menu.open { display: block; }
+/* burger lines */
+.burger-line {
+width: 24px; height: 2px; background: #d4af37;
+border-radius: 2px; transition: all 0.3s;
+}
+#burger.open .burger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+#burger.open .burger-line:nth-child(2) { opacity: 0; }
+#burger.open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+/* ── Hero ── */
+#hero {
+min-height: 100vh;
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+position: relative; overflow: hidden;
+padding: 120px 5% 80px;
+text-align: center;
+background: #080808;
+}
+.hero-orb-mouse {
+position: absolute; width: 600px; height: 600px; border-radius: 50%;
+background: radial-gradient(circle, rgba(212,175,55,0.13) 0%, transparent 70%);
+pointer-events: none;
+transition: top 1.6s ease, left 1.6s ease;
+animation: pulse-orb 6s ease-in-out infinite;
+}
+.hero-orb-center {
+position: absolute; width: 800px; height: 800px; border-radius: 50%;
+background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%);
+top: 50%; left: 50%; transform: translate(-50%,-50%);
+pointer-events: none;
+animation: pulse-orb 8s ease-in-out infinite reverse;
+}
+.hero-grid {
+position: absolute; inset: 0; pointer-events: none;
+background-image:
+linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+background-size: 80px 80px;
+-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-badge {
+display: inline-flex; align-items: center; gap: 8px;
+background: rgba(212,175,55,0.08);
+border: 1px solid rgba(212,175,55,0.25);
+border-radius: 100px; padding: 6px 18px;
+}
+.badge-dot {
+width: 6px; height: 6px; border-radius: 50%; background: #d4af37;
+animation: blink 2s infinite;
+}
+.hero-h1-main {
+font-size: clamp(34px, 6vw, 76px);
+font-family: 'Playfair Display', serif; font-weight: 900;
+color: #fff; line-height: 1.15;
+}
+.hero-h1-gold {
+font-size: clamp(34px, 6vw, 76px);
+font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;
+display: block;
+}
+.scroll-line {
+width: 1px; height: 48px;
+background: linear-gradient(to bottom, rgba(212,175,55,0.5), transparent);
+animation: scrollLine 2s ease-in-out infinite;
+}
+/* ── Stat cards ── */
+.stat-card {
+background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+border: 1px solid rgba(212,175,55,0.15);
+border-radius: 16px; padding: 36px 28px; text-align: center;
+position: relative; overflow: hidden;
+transition: border-color 0.4s, background 0.4s;
+cursor: default;
+}
+.stat-card:hover {
+border-color: rgba(212,175,55,0.4);
+background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02));
+}
+.stat-num {
+font-family: 'Playfair Display', serif; font-weight: 900;
+font-size: clamp(38px, 5vw, 56px); color: #d4af37; line-height: 1;
+}
+/* ── Method cards ── */
+.method-card {
+background: rgba(255,255,255,0.025);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 16px; padding: 32px 28px;
+transition: all 0.4s; cursor: default;
+}
+.method-card:hover {
+background: rgba(212,175,55,0.06);
+border-color: rgba(212,175,55,0.3);
+transform: translateY(-4px);
+box-shadow: 0 20px 60px rgba(212,175,55,0.08);
+}
+/* ── Transformation grid ── */
+.transform-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+}
+.before-card {
+background: rgba(255,50,50,0.04);
+border: 1px solid rgba(255,80,80,0.15);
+border-radius: 20px; padding: 40px 36px;
+}
+.after-card {
+background: rgba(212,175,55,0.04);
+border: 1px solid rgba(212,175,55,0.2);
+border-radius: 20px; padding: 40px 36px;
+}
+.transform-dot-red  { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,100,100,0.5); margin-top: 7px; flex-shrink: 0; }
+.transform-dot-gold { width: 6px; height: 6px; border-radius: 50%; background: #d4af37; margin-top: 7px; flex-shrink: 0; }
+.icon-circle-red  { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,80,80,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px;
+flex-shrink: 0; }
+.icon-circle-gold { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,175,55,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+}
+/* ── Course cards ── */
+.course-card {
+background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 18px; padding: 32px 28px 28px;
+display: flex; flex-direction: column;
+transition: all 0.4s; cursor: default; height: 100%;
+}
+.course-card:hover {
+border-color: rgba(212,175,55,0.35);
+transform: translateY(-6px);
+box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.1);
+background: linear-gradient(145deg, rgba(212,175,55,0.07), rgba(255,255,255,0.02));
+}
+.course-tag {
+background: rgba(212,175,55,0.12); color: #d4af37;
+padding: 4px 12px; border-radius: 100px;
+font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+}
+.course-cta {
+display: block; text-align: center;
+background: rgba(212,175,55,0.1); color: #d4af37;
+padding: 11px 0; border-radius: 8px; font-weight: 600;
+font-size: 13px; text-decoration: none; letter-spacing: 0.04em;
+border: 1px solid rgba(212,175,55,0.2);
+transition: all 0.3s;
+}
+.course-cta:hover {
+background: rgba(212,175,55,0.2);
+border-color: rgba(212,175,55,0.4);
+}
+/* ── Testimonial cards ── */
+.testi-card {
+background: rgba(255,255,255,0.03);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 18px; padding: 32px 28px;
+transition: all 0.4s;
+}
+.testi-card:hover {
+border-color: rgba(212,175,55,0.3);
+transform: translateY(-4px);
+}
+.testi-avatar {
+width: 40px; height: 40px; border-radius: 50%;
+background: linear-gradient(135deg, #d4af37, #b8942e);
+display: flex; align-items: center; justify-content: center;
+font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: #080808;
+flex-shrink: 0;
+}
+/* ── CTA section ── */
+.cta-grid-bg {
+position: absolute; inset: 0; pointer-events: none;
+background-image:
+linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
+background-size: 60px 60px;
+}
+.btn-primary {
+background: linear-gradient(135deg, #d4af37, #b8942e);
+color: #080808; font-weight: 800; text-decoration: none;
+border-radius: 10px; letter-spacing: 0.04em;
+box-shadow: 0 0 60px rgba(212,175,55,0.35);
+transition: box-shadow 0.3s, transform 0.2s;
+display: inline-block;
+}
+.btn-primary:hover {
+box-shadow: 0 0 80px rgba(212,175,55,0.55);
+transform: translateY(-1px);
+}
+.btn-secondary {
+background: transparent; color: #fff;
+border: 1px solid rgba(255,255,255,0.15);
+border-radius: 10px; text-decoration: none; font-weight: 500;
+transition: all 0.3s; display: inline-block;
+}
+.btn-secondary:hover {
+background: rgba(255,255,255,0.06);
+border-color: rgba(212,175,55,0.3);
+}
+/* ── WhatsApp float ── */
+#wa-float {
+position: fixed; bottom: 28px; right: 28px; z-index: 200;
+width: 56px; height: 56px; border-radius: 50%;
+background: linear-gradient(135deg, #25D366, #128C7E);
+display: flex; align-items: center; justify-content: center;
+box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+transition: all 0.3s; text-decoration: none;
+}
+#wa-float:hover {
+transform: scale(1.1);
+box-shadow: 0 6px 32px rgba(37,211,102,0.55);
+}
+/* ── Footer ── */
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 48px;
+}
+.footer-link {
+display: block; color: rgba(255,255,255,0.35); font-size: 14px;
+text-decoration: none; margin-bottom: 12px; transition: color 0.2s;
+}
+.footer-link:hover { color: rgba(255,255,255,0.8); }
+.social-btn {
+width: 36px; height: 36px; border-radius: 8px;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+display: flex; align-items: center; justify-content: center;
+font-size: 16px; text-decoration: none; transition: all 0.3s;
+}
+.social-btn:hover {
+background: rgba(212,175,55,0.1);
+border-color: rgba(212,175,55,0.3);
+}
+/* ── Section label ── */
+.section-label {
+color: #d4af37; font-size: 11px; letter-spacing: 0.2em;
+text-transform: uppercase; font-weight: 500;
+}
+/* ── Responsive ── */
+@media (max-width: 768px) {
+.nav-links, .nav-cta-btn { display: none !important; }
+#burger { display: flex !important; }
+.transform-grid { grid-template-columns: 1fr !important; }
+.footer-grid { grid-template-columns: 1fr 1fr !important; }
+.footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+.footer-grid { grid-template-columns: 1fr !important; }
+.hero-orb-mouse { width: 300px; height: 300px; }
+.before-card, .after-card { padding: 28px 22px; }
+}
+</style>
+</head>
+<body>
+<nav id="main-nav">
+<div class="nav-inner">
+<a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+<div class="logo-mark">L</div>
+<span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;letter-spacing:-0.3px;">Lexora</span>
+</a>
+<div class="nav-links" style="display:flex;align-items:center;gap:36px;">
+<a href="#method">ක්‍රමවේදය</a>
+<a href="#courses">පාඨමාලා</a>
+<a href="#transformation">පරිවර්තනය</a>
+<a href="#testimonials">සිසුන්ගේ අදහස්</a>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="nav-cta-btn"
+style="background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:9px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.04em;">
+දැන්ම සම්බන්ධ වන්න
+</a>
+<button id="burger" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;" aria-label="Menu">
+<div class="burger-line"></div>
+<div class="burger-line"></div>
+<div class="burger-line"></div>
+</button>
+</div>
+<div id="mobile-menu">
+<a href="#method"         onclick="closeMobile()">ක්‍රමවේදය</a>
+<a href="#courses"        onclick="closeMobile()">පාඨමාලා</a>
+<a href="#transformation" onclick="closeMobile()">පරිවර්තනය</a>
+<a href="#testimonials"   onclick="closeMobile()">සිසුන්ගේ අදහස්</a>
+<a href="https://wa.me/94XXXXXXXXX"
+style="margin-top:18px;background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:13px 22px;border-radius:8px;font-weight:700;font-size:15px;text-align:center;border:none;">
+දැන්ම සම්බන්ධ වන්න
+</a>
+</div>
+</nav>
+<section id="hero">
+<div class="hero-orb-mouse" id="hero-orb" style="top:calc(50% - 300px);left:calc(50% - 300px);"></div>
+<div class="hero-orb-center"></div>
+<div class="hero-grid"></div>
+<div style="position:relative;z-index:2;max-width:900px;width:100%;">
+<div class="hero-badge anim-fadeup-1" style="margin-bottom:32px;">
+<div class="badge-dot"></div>
+<span style="color:#d4af37;font-size:12px;letter-spacing:0.15em;font-weight:500;text-transform:uppercase;">
+මතක විද්‍යාව · භාෂා ඉංජිනේරු විද්‍යාව
+</span>
+</div>
+<div class="anim-fadeup-2" style="margin:0 0 24px;">
+<h1 class="hero-h1-main">මොළයට ගැලපෙන ලෙස</h1>
+<h1 class="hero-h1-gold gold-text" style="font-family:'Playfair Display',serif;font-weight:900;font-style:italic;">නිර්මාණය වූ ඉංග්‍රීසි පුහුණුව.</h1>
+</div>
+<p class="anim-fadeup-3"
+style="color:rgba(255,255,255,0.55);font-size:clamp(16px,2.2vw,20px);line-height:1.7;max-width:640px;margin:0 auto 44px;font-weight:300;">
+Lexora විසින් මතක තබා ගැනීමේ ශිල්පීය ක්‍රම, සංජානන රඳවා තබා ගැනීම සහ නවීන මනෝවිද්‍යාව ඒකාබද්ධ කරමින්, සාම්ප්‍රදායික ක්‍රමවලට වඩා වේගයෙන් ඉංග්‍රීසි භාෂාව මතක තබා ගැනීමට, මතකයට නඟා ගැනීමට සහ ස්වභාවිකව හැසිරවීමට ඔබට මග පෙන්වයි.
+</p>
+<div class="anim-fadeup-4" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+<a href="#courses" class="btn-primary" style="padding:15px 34px;font-size:15px;font-family:'DM Sans',sans-serif;">
+ඉගෙනීම අරඹන්න
+</a>
+<a href="https://wa.me/94XXXXXXXXX"
+style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);color:#fff;padding:15px 34px;border-radius:10px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s;"
+onmouseenter="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(212,175,55,0.35)'"
+onmouseleave="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)'">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+WhatsApp පණිවිඩයක් එවන්න
+</a>
+</div>
+<div class="anim-fadeup-5" style="margin-top:72px;display:flex;flex-direction:column;align-items:center;gap:8px;">
+<span style="color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;">ක්‍රමවේදය අධ්‍යයනය කරන්න</span>
+<div class="scroll-line"></div>
+</div>
+</div>
+</section>
+<section style="background:#0c0c0c;padding:100px 5%;border-top:1px solid rgba(212,175,55,0.08);border-bottom:1px solid rgba(212,175,55,0.08);">
+<div style="max-width:1200px;margin:0 auto;">
+<div class="reveal" style="text-align:center;margin-bottom:64px;">
+<span class="section-label">විශ්වාසනීයත්වය</span>
+<h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4vw,44px);color:#fff;margin:12px 0 0;">
+උද්‍යෝගිමත් සිසුන්ගේ නොමඳ විශ්වාසය
+</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+<div class="stat-card reveal reveal-d1">
+<div class="stat-num"><span class="counter" data-target="500" data-suffix="+">0+</span></div>
+<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">මග පෙන්වූ සිසුන් සංඛ්‍යාව</div>
+<div style="color:rgba(255,255,255,0.4);font-size:13px;">පාසල් සහ විශ්වවිද්‍යාල මට්ටමින්</div>
+<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
+</div>
+<div class="stat-card reveal reveal-d2">
+<div class="stat-num"><span class="counter" data-target="98" data-suffix="%">0%</span></div>
+<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">මතකයේ රැඳී පැවතීමේ ප්‍රතිශතය</div>
+<div style="color:rgba(255,255,255,0.4);font-size:13px;">මතක විද්‍යා ශිල්පීය ක්‍රම හරහා</div>
+<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
+</div>
+<div class="stat-card reveal reveal-d3">
+<div class="stat-num"><span class="counter" data-target="12" data-suffix="+">0+</span></div>
+<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">ගුරු අත්දැකීම් කාලය</div>
+<div style="color:rgba(255,255,255,0.4);font-size:13px;">විශ්වවිද්‍යාලයීය TESL ප්‍රවීණත්වය සමඟ</div>
+<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
+</div>
+<div class="stat-card reveal reveal-d4">
+<div class="stat-num"><span class="counter" data-target="6" data-suffix="">0</span></div>
+<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">ප්‍රධාන ශිල්පීය ක්‍රමවේද</div>
+<div style="color:rgba(255,255,255,0.4);font-size:13px;">සංජානන සහ මතක රඳවා ගැනීමේ පද්ධති</div>
+<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="method" style="background:#080808;padding:120px 5%;">
+<div style="max-width:1200px;margin:0 auto;">
+<div class="reveal" style="max-width:640px;margin-bottom:72px;">
+<span class="section-label">Lexora ක්‍රමවේදය</span>
+<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 18px;line-height:1.2;">
+මතක විද්‍යාව තුළින්<br>
+<em class="gold-text">භාෂාව හැසිරවීමේ කලාව</em>
+</h2>
+<p style="color:rgba(255,255,255,0.5);font-size:16px;line-height:1.75;font-weight:300;">
+සාම්ප්‍රදායික ක්‍රම මගින් කරන්නේ ඉංග්‍රීසි ඉගැන්වීම පමණි. නමුත් Lexora විසින් එය මොළයට ධාරණය කරවන තාක්‍ෂණයක් බවට පත් කරයි. අපගේ සෑම තාක්‍ෂණයක්ම සංජානන ස්නායු විද්‍යාව සහ ප්‍රායෝගික ඉගෙනුම් මනෝවිද්‍යාව මත පදනම් වේ.
+</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+<div class="method-card reveal reveal-d1">
+<div style="font-size:32px;margin-bottom:18px;"> 🧠 </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">මතක මන්දිර ව්‍යුහය (Mnemonic Architecture)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">ගෝඛ් කිරීම වෙනුවට, වචන ඔබේ මතකයේ ස්ථිරව තැන්පත් කිරීම සඳහා අපි විචිත්‍රවත් මානසික රූප සමඟ සම්බන්ධ වූ මතක මන්දිර (Memory Palaces) නිර්මාණය කරමු.</p>
+</div>
+<div class="method-card reveal reveal-d2">
+<div style="font-size:32px;margin-bottom:18px;"> 🔁 </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">කාලාන්තර පුනරාවර්තන පද්ධතිය (Spaced Repetition)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Lexora හි පුනරීක්ෂණ චක්‍ර මොළයේ 'අමතක වීමේ වක්‍රයට' (Forgetting Curve) ගැලපෙන සේ සකසා ඇති බැවින්, වචන මතකයෙන් ගිලිහී යාමට පෙරම නැවත තහවුරු කෙරේ.</p>
+</div>
+<div class="method-card reveal reveal-d3">
+<div style="font-size:32px;margin-bottom:18px;"> 🗣️ </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සක්‍රීය මතක කැඳවීමේ කථනය (Active Recall Speaking)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">නිෂ්ක්‍රීයව අසා සිටීම වෙනුවට, සෑම සැසියකදීම මතකය අවදි කිරීමට ඔබට බල කෙරෙයි. එමඟින් ඕනෑම පීඩනයක් යටතේ වුවද ඉංග්‍රීසි වචන ස්වභාවිකව මතකයට නැඟේ.</p>
+</div>
+<div class="method-card reveal reveal-d4">
+<div style="font-size:32px;margin-bottom:18px;"> 🔗 </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සංකල්පීය සබඳතා ජාල (Association Networks)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">අලුත් වචන දැනටමත් ඔබ දන්නා සංකල්ප සමඟ සම්බන්ධ කෙරේ. එමඟින් වචන මතකයට නැඟීම කිසිදු වෙහෙසකින් තොරව ස්වයංක්‍රීයව සිදු වේ.</p>
+</div>
+<div class="method-card reveal reveal-d5">
+<div style="font-size:32px;margin-bottom:18px;"> 🎯 </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සන්නිවේදන පරිසර කේතනය (Contextual Encoding)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">භාෂාව ඉගෙන ගන්නේ ප්‍රායෝගික වටපිටාවන් තුළයි — සම්මුඛ සාකච්ඡා, ඉදිරිපත් කිරීම් සහ එදිනෙදා සාකච්ඡා හරහා ක්ෂණික ප්‍රායෝගික භාවිතය පුහුණු කෙරේ.</p>
+</div>
+<div class="method-card reveal reveal-d6">
+<div style="font-size:32px;margin-bottom:18px;"> ⚡ </div>
+<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">ත්වරිත භාෂා ධාරණය (Accelerated Acquisition)</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">භාෂා රටා හඳුනා ගැනීම (Pattern Recognition) සහ තොරතුරු කාණ්ඩගත කිරීම මගින්, වසර ගණනාවක් ගතවන භාෂා හැසිරවීමේ හැකියාව මාස කිහිපයකට කෙටි කරයි.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="transformation" style="background:#0a0a0a;padding:120px 5%;position:relative;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.04) 0%, transparent 70%);pointer-events:none;"></div>
+<div style="max-width:1200px;margin:0 auto;position:relative;">
+<div class="reveal" style="text-align:center;margin-bottom:72px;">
+<span class="section-label">පැහැදිලි වෙනස</span>
+<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
+පැකිලීමේ සිට<br><em class="gold-text">ප්‍රවීණත්වය දක්වා</em>
+</h2>
+</div>
+<div class="transform-grid">
+<div class="before-card reveal reveal-d1">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+<div class="icon-circle-red"> ✗ </div>
+<span style="font-weight:700;font-size:18px;color:rgba(255,120,120,0.9);">Lexora වලට පෙර</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">කතා කරන විට මැදදී වචන අමතක වී ගොත ගැසීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">ව්‍යාකරණ නීති කටපාඩම් කළත් මතකයේ නොරැඳීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">සිංහලෙන් සිතා එය ඉංග්‍රීසියට පරිවර්තනය කිරීමට උත්සාහ කිරීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">ඉගෙන ගන්නා වචන දින කිහිපයකින් අමතක වී යාම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">වැරදීම් සිදු වේ යැයි අන් අය විවේචනය කරයි යන බිය</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">සම්මුඛ සාකච්ඡා සහ ප්‍රසන්ටේෂන් වලදී ආත්මවිශ්වාසය අඩු වීම</span></div>
+</div>
+<div class="after-card reveal reveal-d2">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+<div class="icon-circle-gold"> ✓ </div>
+<span style="font-weight:700;font-size:18px;color:#d4af37;">Lexora සමඟ</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">අදහස් චතුර ලෙස සහ ස්වභාවිකව ප්‍රකාශ කිරීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">වචන සහ වාක්‍ය ඛණ්ඩ ක්ෂණිකව මතකයට නැඟීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">ඍජුවම ඉංග්‍රීසි භාෂාවෙන් සිතීමට හුරු වීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">මතක ශිල්පීය ක්‍රම නිසා වචන ජීවිත කාලයටම මතකයේ රැඳීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">පිරිසක් ඉදිරියේ පැහැදිලි පෞරුෂයකින් යුතුව කතා කිරීම</span></div>
+<div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">සම්මුඛ සාකච්ඡා, ප්‍රසන්ටේෂන් සහ ජාත්‍යන්තර අවස්ථා ජය ගැනීම</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="courses" style="background:#080808;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
+<div style="max-width:1200px;margin:0 auto;">
+<div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;">
+<div>
+<span class="section-label">වැඩසටහන්</span>
+<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
+ඔබේ අරමුණුවලට ගැලපෙන<br><em class="gold-text">විශේෂිත පාඨමාලා</em>
+</h2>
+</div>
+<a href="https://wa.me/94XXXXXXXXX"
+style="color:#d4af37;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:0.04em;border-bottom:1px solid rgba(212,175,55,0.4);padding-bottom:2px;">
+සියලුම වැඩසටහන් බලන්න →
+</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
+<div class="course-card reveal reveal-d1">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">ප්‍රධානතම</span><span style="font-size:28px;"> 💬 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Spoken English Mastery</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">පැකිලීමකින් තොරව, සක්‍රීය මතක කැඳවීම් සහ ප්‍රායෝගික සාකච්ඡා මගින් ස්වභාවික කථන හැකියාව සහ චතුරභාවය වර්ධනය කරන මතකය පාදක කරගත් කථන පුහුණුව.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 12</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ඕනෑම මට්ටමකට</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+<div class="course-card reveal reveal-d2">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">ජනප්‍රිය</span><span style="font-size:28px;"> 📚 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Academic English</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">තරඟකාරී විභාග සහ උසස් අධ්‍යාපනය සඳහා අවශ්‍ය වන විශ්වවිද්‍යාල මට්ටමේ ලිවීම්, කියවා තේරුම් ගැනීම් සහ ශාස්ත්‍රීය ප්‍රකාශන ශිල්පීය ක්‍රම.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 10</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම මට්ටම</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+<div class="course-card reveal reveal-d3">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">වෘත්තීය</span><span style="font-size:28px;"> 💼 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Professional Communication</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">වෘත්තීය දියුණුව සඳහා කාර්යාලීය ඉංග්‍රීසි භාවිතය, ඊමේල් ලිවීම, සාකච්ඡා සම්මුතීන් පැවැත්වීම සහ ඉහළ කළමනාකාරීත්ව මට්ටමේ සන්නිවේදනය.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 8</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම+ මට්ටම</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+<div class="course-card reveal reveal-d4">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">ඉහළ බලපෑමක්</span><span style="font-size:28px;"> 🎯 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Interview Confidence</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">වචන මාලා මතක තබා ගැනීම, ව්‍යුහගත පිළිතුරු සැපයීම සහ මානසික ආත්මවිශ්වාසය වර්ධනය කිරීමේ ක්‍රමවේද ඇතුළත් ඉලක්කගත සම්මුඛ සාකච්ඡා සූදානම.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 4</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ඕනෑම මට්ටමකට</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+<div class="course-card reveal reveal-d5">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">දක්ෂතා</span><span style="font-size:28px;"> 🎤 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Presentation Mastery</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">පිරිසක් ඉදිරියේ අවධානය දිනා ගැනීම, අදහස් ප්‍රබල ලෙස පෙළගැස්වීම, අනවශ්‍ය වචන භාවිතය (filler language) නැවැත්වීම සහ ඉහළ විශ්වාසයකින් ඉදිරිපත් කිරීම.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 6</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම මට්ටම</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+<div class="course-card reveal reveal-d6">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+<span class="course-tag">පදනම</span><span style="font-size:28px;"> 🧩 </span>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Memory Vocabulary System</h3>
+<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">නිතර භාවිත වන ඉහළ වටිනාකමකින් යුතු වචන 2000ක්, මතක ව්‍යුහයන් (Mnemonic Architecture) හරහා ජීවිත කාලයටම ධාරණය කර ක්ෂණිකව මතකයට නැඟීමේ පද්ධතිය.</p>
+<div style="display:flex;gap:16px;margin-bottom:24px;">
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 8</span>
+<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ආරම්භක+ මට්ටම</span>
+</div>
+<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
+</div>
+</div>
+</div>
+</section>
+<section id="testimonials" style="background:#0c0c0c;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
+<div style="max-width:1200px;margin:0 auto;">
+<div class="reveal" style="text-align:center;margin-bottom:64px;">
+<span class="section-label">සිසුන්ගේ අත්දැකීම්</span>
+<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,4vw,48px);color:#fff;margin:14px 0 0;">
+සැබෑ වෙනස්කම්.<br><em class="gold-text">විශ්වාසනීය ප්‍රතිඵල.</em>
+</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
+<div class="testi-card reveal reveal-d1">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම ව්‍යාකරණ දැනගෙන හිටියත් කතා කරන්න ගියාම හිරවුණා. Lexora ගේ නිමොනික් (mnemonic) ක්‍රමය මගේ මොළය ඉංග්‍රීසි හසුරුවන විදිහ සම්පූර්ණයෙන්ම වෙනස් කළා. මාස තුනකට පස්සේ මම දැන් විශ්වවිද්‍යාල සෙමිනාර්ස් වල විශ්වාසයෙන් ප්‍රසන්ටේෂන් කරනවා.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">T</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">තරුෂි P.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">විශ්වවිද්‍යාල ශිෂ්‍යාව, කොළඹ</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+<div class="testi-card reveal reveal-d2">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මතකය මත පදනම් වූ වචන මාලා පද්ධතිය මම මීට පෙර උත්සාහ කර ඇති කිසිම දෙයකට සමාන නැහැ. ඔවුන්ගේ ඇසෝසියේෂන් ක්‍රමය හරහා මම ඉගෙන ගත් වචන මාස හයකට පස්සෙත් අලුත් වගේ මතකයි. මගේ ඊමේල් සහ ප්‍රසන්ටේෂන් දැන් සම්පූර්ණයෙන්ම වෙනස් මට්ටමක තියෙන්නේ.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">K</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">කවිඳ R.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">අලෙවිකරණ වෘත්තිකකයෙක්</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+<div class="testi-card reveal reveal-d3">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම ඉංග්‍රීසි සම්මුඛ සාකච්ඡා වලට ගොඩක් බය වෙලා හිටියේ. මෙම පාඨමාලාවෙන් මට වචන ලැයිස්තු විතරක් නෙවෙයි, ප්‍රායෝගිකව පිළිතුරු ගොඩනගන ආකාරය කියා දුන්නා. කෝස් එක ඉවර වෙලා සති කිහිපයක් ඇතුළත මට මගේ පළමු රැකියාව ලබා ගන්න පුළුවන් වුණා.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">D</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">දිලුක්ෂි M.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">පාසල් හැරගිය ශිෂ්‍යාව, යාපනය</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+<div class="testi-card reveal reveal-d4">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම බලාපොරොත්තු වුණේ සාමාන්‍ය ඉංග්‍රීසි පන්තියක්. නමුත් මට ලැබුණේ සම්පූර්ණ සංජානන ප්‍රතිනිර්මාණයක් (cognitive rewiring). මම දැන් ඉංග්‍රීසියෙන් හිතනවා — පරිවර්තනය කරන්නේ නැහැ. ගෙවන සෑම රුපියලකටම උපරිම වටිනාකමක් තියෙනවා.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">A</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">අමේෂ් S.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">තොරතුරු තාක්ෂණ (IT) වෘත්තිකයෙක්</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+<div class="testi-card reveal reveal-d5">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මගේ පාසලේ ඉංග්‍රීසි ගුරුතුමා හොඳයි, නමුත් Lexora ක්‍රියා කරන්නේ හාත්පසින්ම වෙනස් මට්ටමක. ඔවුන් වචන මාලාව සහ කථනය උගන්වන පිටුපස ඇති විද්‍යාව ඇත්තටම විප්ලවීයයි.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">N</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">නිමේෂා W.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">උසස් පෙළ (A/L) ශිෂ්‍යාව</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+<div class="testi-card reveal reveal-d6">
+<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">'Premium' යන්න මෙයට දිය හැකි හොඳම වචනයයි. ක්‍රමවේදය, නිබන්ධන, ක්‍රමවත් ප්‍රගතිය — මේ හැමදේකින්ම පෙනෙන්නේ මෙය බැරෑරුම් ලෙස ඉගෙන ගන්නන් සඳහාම නිපදවා ඇති බවයි. මගේ ගෝලීය සන්නිවේදන හැකියාව මේ නිසා විශාල ලෙස දියුණු වුණා.</p>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="testi-avatar">R</div>
+<div>
+<div style="color:#fff;font-weight:600;font-size:14px;">රජිත් F.</div>
+<div style="color:rgba(255,255,255,0.35);font-size:12px;">ව්‍යවසායකයෙක්</div>
+</div>
+<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section style="background:#080808;padding:140px 5%;text-align:center;position:relative;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);pointer-events:none;"></div>
+<div class="cta-grid-bg"></div>
+<div style="position:relative;max-width:800px;margin:0 auto;">
+<div class="reveal">
+<div class="hero-badge" style="margin-bottom:36px;display:inline-flex;">
+<span style="color:#d4af37;font-size:12px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">ඔබේ වෙනස අදම අරඹන්න</span>
+</div>
+<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,6vw,72px);color:#fff;margin:0 0 24px;line-height:1.05;">
+මොළය පුහුණු කරන්න.<br>
+<em class="gold-text">ඉංග්‍රීසි සන්නිවේදනය දියුණු කරන්න.</em>
+</h2>
+<p style="color:rgba(255,255,255,0.5);font-size:clamp(15px,2vw,19px);line-height:1.7;font-weight:300;margin:0 auto 52px;max-width:520px;">
+ඉංග්‍රීසි භාෂාවේ අනාගතය තීරණය වන්නේ ඔබ එය හුදෙක් පාඩම් කිරීම වෙනුවට විද්‍යාත්මකව මොළයට ධාරණය කර ගැනීමට තීරණය කරන මොහොතේ සිටයි.
+</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+<a href="https://wa.me/94XXXXXXXXX" class="btn-primary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
+දැන්ම ලියාපදිංචි වන්න — Lexora හා එක්වන්න
+</a>
+<a href="#courses" class="btn-secondary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
+පාඨමාලා ගවේෂණය කරන්න
+</a>
+</div>
+<p style="color:rgba(255,255,255,0.2);font-size:12px;margin-top:32px;letter-spacing:0.05em;">
+බැඳීම් නොමැත · ක්ෂණික ප්‍රතිචාර සඳහා WhatsApp කරන්න · එක් කණ්ඩායමක් සඳහා සීමිත ආසන සංඛ්‍යාවක් පමණි
+</p>
+</div>
+</div>
+</section>
+<footer style="background:#060606;border-top:1px solid rgba(212,175,55,0.1);padding:80px 5% 40px;">
+<div style="max-width:1200px;margin:0 auto;">
+<div class="footer-grid" style="margin-bottom:72px;">
+<div>
+<a href="#" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px;">
+<div class="logo-mark">L</div>
+<span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;">Lexora</span>
+</a>
+<p style="color:rgba(255,255,255,0.35);font-size:14px;line-height:1.75;font-weight:300;max-width:280px;margin:0 0 24px;">
+මතක විද්‍යාව තුළින් නිර්මාණය වූ භාෂා පුහුණුව. ශ්‍රී ලංකාවේ සහ ඉන් ඔබ්බෙහි සිටින උද්‍යෝගිමත් ඉංග්‍රීසි ඉගෙන ගන්නන් සඳහා වූ ප්‍රිමියම් සංජානන ඉගෙනුම් පද්ධතියකි.
+</p>
+<div style="display:flex;gap:12px;">
+<a href="#" class="social-btn" title="WhatsApp"> 📱 </a>
+<a href="#" class="social-btn" title="Instagram"> 📸 </a>
+<a href="#" class="social-btn" title="Facebook"> 📘 </a>
+</div>
+</div>
+<div>
+<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">පාඨමාලා</h4>
+<a href="#courses" class="footer-link">Spoken English</a>
+<a href="#courses" class="footer-link">Academic English</a>
+<a href="#courses" class="footer-link">Professional Communication</a>
+<a href="#courses" class="footer-link">Interview Confidence</a>
+</div>
+<div>
+<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">ආයතනය</h4>
+<a href="#" class="footer-link">Lexora ගැන</a>
+<a href="#method" class="footer-link">ක්‍රමවේදය</a>
+<a href="#" class="footer-link">අපගේ දර්ශනය</a>
+<a href="#testimonials" class="footer-link">සිසුන්ගේ කතා</a>
+</div>
+<div>
+<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">සම්බන්ධ වන්න</h4>
+<a href="https://wa.me/94XXXXXXXXX" class="footer-link">WhatsApp</a>
+<a href="#" class="footer-link">Instagram</a>
+<a href="#" class="footer-link">Facebook</a>
+<a href="mailto:hello@lexora.lk" class="footer-link">ඊමේල් පණිවිඩයක් එවන්න</a>
+</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+<span style="color:rgba(255,255,255,0.2);font-size:13px;">© 2026 Lexora English Academy. සියලුම හිමිකම් ඇවිරිණි.</span>
+<span style="color:rgba(255,255,255,0.2);font-size:13px;font-style:italic;">Language Engineered Through Memory Science™</span>
+</div>
+</div>
+</footer>
+<a id="wa-float" href="https://wa.me/94XXXXXXXXX" title="Chat on WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+</svg>
+</a>
+<script>
+/* ── Nav: scroll effect + burger ── */
+const nav = document.getElementById('main-nav');
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+window.addEventListener('scroll', () => {
+nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+burger.addEventListener('click', () => {
+burger.classList.toggle('open');
+mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+burger.classList.remove('open');
+mobileMenu.classList.remove('open');
+}
+/* ── Hero: mouse-tracking orb ── */
+const heroOrb = document.getElementById('hero-orb');
+document.addEventListener('mousemove', (e) => {
+const x = (e.clientX / window.innerWidth) * 100;
+const y = (e.clientY / window.innerHeight) * 100;
+heroOrb.style.left = `calc(${x}% - 300px)`;
+heroOrb.style.top  = `calc(${y}% - 300px)`;
+});
+/* ── Scroll-reveal (IntersectionObserver) ── */
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+revealObs.unobserve(entry.target);
+}
+});
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObs.observe(el));
+/* ── Animated counters ── */
+const counters = document.querySelectorAll('.counter');
+const counterObs = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (!entry.isIntersecting) return;
+const el = entry.target;
+const target = parseInt(el.dataset.target, 10);
+const suffix = el.dataset.suffix || '';
+const duration = 1800;
+const step = Math.ceil(target / (duration / 16));
+let current = 0;
+counterObs.unobserve(el);
+const timer = setInterval(() => {
+current += step;
+if (current >= target) {
+current = target;
+clearInterval(timer);
+}
+el.textContent = current + suffix;
+}, 16);
+});
+}, { threshold: 0.5 });
+counters.forEach(el => counterObs.observe(el));
+/* ── Smooth scroll for anchor links ── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+e.preventDefault();
+const offset = 80;
+const top = target.getBoundingClientRect().top + window.scrollY - offset;
+window.scrollTo({ top, behavior: 'smooth' });
+}
+});
+});
+</script>
 </body>
 </html>
