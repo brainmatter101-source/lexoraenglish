@@ -1,900 +1,690 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lexora English Academy — මතක විද්‍යාව තුළින් නිර්මාණය වූ භාෂා පුහුණුව</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lexora English Academy™ — Accelerated English Memory Training™ & AI Speaking Lab</title>
+  <meta name="description" content="මතක විද්‍යාව (The Pattern-Lock System™) සහ ශ්‍රී ලංකාවේ ප්‍රථම දිනකට මිනිත්තු 15ක AI කථන පුහුණුකරු සමඟ සති 8න් ඉංග්‍රීසි කථන හැකියාව තහවුරු කරගන්න. 2027 ජනවාරි 21 නොමිලේ පැවැත්වෙන Masterclass සඳහා දැන්ම ලියාපදිංචි වන්න." />
+
+  <!-- Google Fonts: Montserrat, Inter & Noto Sans Sinhala -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Montserrat"', '"Noto Sans Sinhala"', 'sans-serif'],
+            sans: ['"Inter"', '"Noto Sans Sinhala"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#040F1D',
+              900: '#071A32',
+              800: '#0B2545',
+              700: '#0F2D52',
+            },
+            gold: {
+              light: '#F3E7C4',
+              DEFAULT: '#D4A95A',
+              dark: '#9A7432',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-  body {
-    font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Nirmala UI', sans-serif;
-  }
-</style>
-<meta name="description" content="Lexora English Academy විසින් මතක තබා ගැනීමේ ශිල්පීය ක්‍රම, සංජානන රඳවා තබා ගැනීම සහ නවීන මනෝවිද්‍යාව ඒකාබද්ධ කරමින් ඔබට ස්වභාවිකව සහ විශ්වාසයෙන් යුතුව ඉංග්‍රීසි හැසිරවීමට මග පෙන්වයි." />
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<script>
-tailwind.config = {
-theme: {
-extend: {
-fontFamily: {
-playfair: ['"Playfair Display"', 'Georgia', 'serif'],
-dm: ['"DM Sans"', 'sans-serif'],
-},
-colors: {
-gold: '#d4af37',
-'gold-light': '#f5e27a',
-'gold-dark': '#b8942e',
-ink: '#080808',
-'ink-2': '#0c0c0c',
-'ink-3': '#0a0a0a',
-},
-}
-}
-}
-</script>
-<style>
-/* ── Base ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: #080808; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
-/* ── Gold gradient text ── */
-.gold-text {
-background: linear-gradient(135deg, #d4af37 0%, #f5e27a 50%, #b8942e 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-/* ── Scroll-reveal animation ── */
-.reveal {
-opacity: 0;
-transform: translateY(32px);
-transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
-.reveal-d5 { transition-delay: 0.40s; }
-.reveal-d6 { transition-delay: 0.48s; }
-/* ── Keyframe animations ── */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(28px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse-orb {
-0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
-}
-@keyframes blink {
-0%, 100% { opacity: 1; }
-50%       { opacity: 0.3; }
-}
-@keyframes scrollLine {
-0%, 100% { opacity: 0.5; transform: scaleY(1); }
-50%       { opacity: 1; transform: scaleY(1.4); }
-}
-@keyframes float {
-0%, 100% { transform: translateY(0px); }
-50%       { transform: translateY(-8px); }
-}
-.anim-fadeup-1 { animation: fadeUp 0.9s ease 0.1s both; }
-.anim-fadeup-2 { animation: fadeUp 0.9s ease 0.25s both; }
-.anim-fadeup-3 { animation: fadeUp 0.9s ease 0.4s both; }
-.anim-fadeup-4 { animation: fadeUp 0.9s ease 0.55s both; }
-.anim-fadeup-5 { animation: fadeUp 0.9s ease 0.7s both; }
-/* ── Nav ── */
-#main-nav {
-position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-padding: 0 5%;
-transition: background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
-}
-#main-nav.scrolled {
-background: rgba(8, 8, 8, 0.92);
-backdrop-filter: blur(20px);
-border-bottom: 1px solid rgba(212, 175, 55, 0.12);
-}
-.nav-inner {
-max-width: 1200px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: 72px;
-}
-.logo-mark {
-width: 36px; height: 36px; border-radius: 8px;
-background: linear-gradient(135deg, #d4af37, #f5e27a);
-display: flex; align-items: center; justify-content: center;
-font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: #080808;
-}
-.nav-links a {
-color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px;
-letter-spacing: 0.02em; transition: color 0.2s;
-}
-.nav-links a:hover { color: #d4af37; }
-/* ── Mobile nav ── */
-#mobile-menu {
-display: none;
-background: rgba(8,8,8,0.97);
-border-top: 1px solid rgba(212,175,55,0.15);
-padding: 20px 5% 24px;
-}
-#mobile-menu a {
-display: block; color: rgba(255,255,255,0.75); text-decoration: none;
-font-size: 16px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-#mobile-menu.open { display: block; }
-/* burger lines */
-.burger-line {
-width: 24px; height: 2px; background: #d4af37;
-border-radius: 2px; transition: all 0.3s;
-}
-#burger.open .burger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-#burger.open .burger-line:nth-child(2) { opacity: 0; }
-#burger.open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-/* ── Hero ── */
-#hero {
-min-height: 100vh;
-display: flex; flex-direction: column; align-items: center; justify-content: center;
-position: relative; overflow: hidden;
-padding: 120px 5% 80px;
-text-align: center;
-background: #080808;
-}
-.hero-orb-mouse {
-position: absolute; width: 600px; height: 600px; border-radius: 50%;
-background: radial-gradient(circle, rgba(212,175,55,0.13) 0%, transparent 70%);
-pointer-events: none;
-transition: top 1.6s ease, left 1.6s ease;
-animation: pulse-orb 6s ease-in-out infinite;
-}
-.hero-orb-center {
-position: absolute; width: 800px; height: 800px; border-radius: 50%;
-background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%);
-top: 50%; left: 50%; transform: translate(-50%,-50%);
-pointer-events: none;
-animation: pulse-orb 8s ease-in-out infinite reverse;
-}
-.hero-grid {
-position: absolute; inset: 0; pointer-events: none;
-background-image:
-linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
-background-size: 80px 80px;
--webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-}
-.hero-badge {
-display: inline-flex; align-items: center; gap: 8px;
-background: rgba(212,175,55,0.08);
-border: 1px solid rgba(212,175,55,0.25);
-border-radius: 100px; padding: 6px 18px;
-}
-.badge-dot {
-width: 6px; height: 6px; border-radius: 50%; background: #d4af37;
-animation: blink 2s infinite;
-}
-.hero-h1-main {
-font-size: clamp(34px, 6vw, 76px);
-font-family: 'Playfair Display', serif; font-weight: 900;
-color: #fff; line-height: 1.15;
-}
-.hero-h1-gold {
-font-size: clamp(34px, 6vw, 76px);
-font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;
-display: block;
-}
-.scroll-line {
-width: 1px; height: 48px;
-background: linear-gradient(to bottom, rgba(212,175,55,0.5), transparent);
-animation: scrollLine 2s ease-in-out infinite;
-}
-/* ── Stat cards ── */
-.stat-card {
-background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-border: 1px solid rgba(212,175,55,0.15);
-border-radius: 16px; padding: 36px 28px; text-align: center;
-position: relative; overflow: hidden;
-transition: border-color 0.4s, background 0.4s;
-cursor: default;
-}
-.stat-card:hover {
-border-color: rgba(212,175,55,0.4);
-background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02));
-}
-.stat-num {
-font-family: 'Playfair Display', serif; font-weight: 900;
-font-size: clamp(38px, 5vw, 56px); color: #d4af37; line-height: 1;
-}
-/* ── Method cards ── */
-.method-card {
-background: rgba(255,255,255,0.025);
-border: 1px solid rgba(255,255,255,0.07);
-border-radius: 16px; padding: 32px 28px;
-transition: all 0.4s; cursor: default;
-}
-.method-card:hover {
-background: rgba(212,175,55,0.06);
-border-color: rgba(212,175,55,0.3);
-transform: translateY(-4px);
-box-shadow: 0 20px 60px rgba(212,175,55,0.08);
-}
-/* ── Transformation grid ── */
-.transform-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 24px;
-}
-.before-card {
-background: rgba(255,50,50,0.04);
-border: 1px solid rgba(255,80,80,0.15);
-border-radius: 20px; padding: 40px 36px;
-}
-.after-card {
-background: rgba(212,175,55,0.04);
-border: 1px solid rgba(212,175,55,0.2);
-border-radius: 20px; padding: 40px 36px;
-}
-.transform-dot-red  { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,100,100,0.5); margin-top: 7px; flex-shrink: 0; }
-.transform-dot-gold { width: 6px; height: 6px; border-radius: 50%; background: #d4af37; margin-top: 7px; flex-shrink: 0; }
-.icon-circle-red  { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,80,80,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px;
-flex-shrink: 0; }
-.icon-circle-gold { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,175,55,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
-}
-/* ── Course cards ── */
-.course-card {
-background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
-border: 1px solid rgba(255,255,255,0.08);
-border-radius: 18px; padding: 32px 28px 28px;
-display: flex; flex-direction: column;
-transition: all 0.4s; cursor: default; height: 100%;
-}
-.course-card:hover {
-border-color: rgba(212,175,55,0.35);
-transform: translateY(-6px);
-box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.1);
-background: linear-gradient(145deg, rgba(212,175,55,0.07), rgba(255,255,255,0.02));
-}
-.course-tag {
-background: rgba(212,175,55,0.12); color: #d4af37;
-padding: 4px 12px; border-radius: 100px;
-font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
-}
-.course-cta {
-display: block; text-align: center;
-background: rgba(212,175,55,0.1); color: #d4af37;
-padding: 11px 0; border-radius: 8px; font-weight: 600;
-font-size: 13px; text-decoration: none; letter-spacing: 0.04em;
-border: 1px solid rgba(212,175,55,0.2);
-transition: all 0.3s;
-}
-.course-cta:hover {
-background: rgba(212,175,55,0.2);
-border-color: rgba(212,175,55,0.4);
-}
-/* ── Testimonial cards ── */
-.testi-card {
-background: rgba(255,255,255,0.03);
-backdrop-filter: blur(20px);
-border: 1px solid rgba(255,255,255,0.07);
-border-radius: 18px; padding: 32px 28px;
-transition: all 0.4s;
-}
-.testi-card:hover {
-border-color: rgba(212,175,55,0.3);
-transform: translateY(-4px);
-}
-.testi-avatar {
-width: 40px; height: 40px; border-radius: 50%;
-background: linear-gradient(135deg, #d4af37, #b8942e);
-display: flex; align-items: center; justify-content: center;
-font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: #080808;
-flex-shrink: 0;
-}
-/* ── CTA section ── */
-.cta-grid-bg {
-position: absolute; inset: 0; pointer-events: none;
-background-image:
-linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
-background-size: 60px 60px;
-}
-.btn-primary {
-background: linear-gradient(135deg, #d4af37, #b8942e);
-color: #080808; font-weight: 800; text-decoration: none;
-border-radius: 10px; letter-spacing: 0.04em;
-box-shadow: 0 0 60px rgba(212,175,55,0.35);
-transition: box-shadow 0.3s, transform 0.2s;
-display: inline-block;
-}
-.btn-primary:hover {
-box-shadow: 0 0 80px rgba(212,175,55,0.55);
-transform: translateY(-1px);
-}
-.btn-secondary {
-background: transparent; color: #fff;
-border: 1px solid rgba(255,255,255,0.15);
-border-radius: 10px; text-decoration: none; font-weight: 500;
-transition: all 0.3s; display: inline-block;
-}
-.btn-secondary:hover {
-background: rgba(255,255,255,0.06);
-border-color: rgba(212,175,55,0.3);
-}
-/* ── WhatsApp float ── */
-#wa-float {
-position: fixed; bottom: 28px; right: 28px; z-index: 200;
-width: 56px; height: 56px; border-radius: 50%;
-background: linear-gradient(135deg, #25D366, #128C7E);
-display: flex; align-items: center; justify-content: center;
-box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-transition: all 0.3s; text-decoration: none;
-}
-#wa-float:hover {
-transform: scale(1.1);
-box-shadow: 0 6px 32px rgba(37,211,102,0.55);
-}
-/* ── Footer ── */
-.footer-grid {
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
-gap: 48px;
-}
-.footer-link {
-display: block; color: rgba(255,255,255,0.35); font-size: 14px;
-text-decoration: none; margin-bottom: 12px; transition: color 0.2s;
-}
-.footer-link:hover { color: rgba(255,255,255,0.8); }
-.social-btn {
-width: 36px; height: 36px; border-radius: 8px;
-background: rgba(255,255,255,0.05);
-border: 1px solid rgba(255,255,255,0.08);
-display: flex; align-items: center; justify-content: center;
-font-size: 16px; text-decoration: none; transition: all 0.3s;
-}
-.social-btn:hover {
-background: rgba(212,175,55,0.1);
-border-color: rgba(212,175,55,0.3);
-}
-/* ── Section label ── */
-.section-label {
-color: #d4af37; font-size: 11px; letter-spacing: 0.2em;
-text-transform: uppercase; font-weight: 500;
-}
-/* ── Responsive ── */
-@media (max-width: 768px) {
-.nav-links, .nav-cta-btn { display: none !important; }
-#burger { display: flex !important; }
-.transform-grid { grid-template-columns: 1fr !important; }
-.footer-grid { grid-template-columns: 1fr 1fr !important; }
-.footer-grid > div:first-child { grid-column: 1 / -1; }
-}
-@media (max-width: 640px) {
-.footer-grid { grid-template-columns: 1fr !important; }
-.hero-orb-mouse { width: 300px; height: 300px; }
-.before-card, .after-card { padding: 28px 22px; }
-}
-</style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #071A32;
+      color: #FFFFFF;
+      font-family: 'Inter', 'Noto Sans Sinhala', sans-serif;
+      overflow-x: hidden;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F3E7C4 0%, #D4A95A 50%, #9A7432 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gold-btn {
+      background: linear-gradient(135deg, #F3E7C4 0%, #D4A95A 55%, #9A7432 100%);
+      color: #071A32;
+      font-weight: 800;
+      box-shadow: 0 8px 32px rgba(212, 169, 90, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212, 169, 90, 0.5);
+    }
+    .navy-card {
+      background: linear-gradient(145deg, rgba(15, 45, 82, 0.9), rgba(7, 26, 50, 0.95));
+      border: 1px solid rgba(212, 169, 90, 0.22);
+      transition: all 0.35s ease;
+    }
+    .navy-card:hover {
+      border-color: rgba(212, 169, 90, 0.55);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(4, 15, 29, 0.6);
+    }
+    .tech-grid {
+      background-image:
+        linear-gradient(rgba(212, 169, 90, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 169, 90, 0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    @keyframes wave {
+      0%, 100% { height: 10px; }
+      50% { height: 36px; }
+    }
+    .voice-bar {
+      width: 5px;
+      background: #D4A95A;
+      border-radius: 99px;
+      animation: wave 1.1s ease-in-out infinite;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
-<nav id="main-nav">
-<div class="nav-inner">
-<a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-<div class="logo-mark">L</div>
-<span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;letter-spacing:-0.3px;">Lexora</span>
-</a>
-<div class="nav-links" style="display:flex;align-items:center;gap:36px;">
-<a href="#method">ක්‍රමවේදය</a>
-<a href="#courses">පාඨමාලා</a>
-<a href="#transformation">පරිවර්තනය</a>
-<a href="#testimonials">සිසුන්ගේ අදහස්</a>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="nav-cta-btn"
-style="background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:9px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.04em;">
-දැන්ම සම්බන්ධ වන්න
-</a>
-<button id="burger" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;" aria-label="Menu">
-<div class="burger-line"></div>
-<div class="burger-line"></div>
-<div class="burger-line"></div>
-</button>
-</div>
-<div id="mobile-menu">
-<a href="#method"         onclick="closeMobile()">ක්‍රමවේදය</a>
-<a href="#courses"        onclick="closeMobile()">පාඨමාලා</a>
-<a href="#transformation" onclick="closeMobile()">පරිවර්තනය</a>
-<a href="#testimonials"   onclick="closeMobile()">සිසුන්ගේ අදහස්</a>
-<a href="https://wa.me/94XXXXXXXXX"
-style="margin-top:18px;background:linear-gradient(135deg,#d4af37,#b8942e);color:#080808;padding:13px 22px;border-radius:8px;font-weight:700;font-size:15px;text-align:center;border:none;">
-දැන්ම සම්බන්ධ වන්න
-</a>
-</div>
-</nav>
-<section id="hero">
-<div class="hero-orb-mouse" id="hero-orb" style="top:calc(50% - 300px);left:calc(50% - 300px);"></div>
-<div class="hero-orb-center"></div>
-<div class="hero-grid"></div>
-<div style="position:relative;z-index:2;max-width:900px;width:100%;">
-<div class="hero-badge anim-fadeup-1" style="margin-bottom:32px;">
-<div class="badge-dot"></div>
-<span style="color:#d4af37;font-size:12px;letter-spacing:0.15em;font-weight:500;text-transform:uppercase;">
-මතක විද්‍යාව · භාෂා ඉංජිනේරු විද්‍යාව
-</span>
-</div>
-<div class="anim-fadeup-2" style="margin:0 0 24px;">
-<h1 class="hero-h1-main">මොළයට ගැලපෙන ලෙස</h1>
-<h1 class="hero-h1-gold gold-text" style="font-family:'Playfair Display',serif;font-weight:900;font-style:italic;">නිර්මාණය වූ ඉංග්‍රීසි පුහුණුව.</h1>
-</div>
-<p class="anim-fadeup-3"
-style="color:rgba(255,255,255,0.55);font-size:clamp(16px,2.2vw,20px);line-height:1.7;max-width:640px;margin:0 auto 44px;font-weight:300;">
-Lexora විසින් මතක තබා ගැනීමේ ශිල්පීය ක්‍රම, සංජානන රඳවා තබා ගැනීම සහ නවීන මනෝවිද්‍යාව ඒකාබද්ධ කරමින්, සාම්ප්‍රදායික ක්‍රමවලට වඩා වේගයෙන් ඉංග්‍රීසි භාෂාව මතක තබා ගැනීමට, මතකයට නඟා ගැනීමට සහ ස්වභාවිකව හැසිරවීමට ඔබට මග පෙන්වයි.
-</p>
-<div class="anim-fadeup-4" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-<a href="#courses" class="btn-primary" style="padding:15px 34px;font-size:15px;font-family:'DM Sans',sans-serif;">
-ඉගෙනීම අරඹන්න
-</a>
-<a href="https://wa.me/94XXXXXXXXX"
-style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);color:#fff;padding:15px 34px;border-radius:10px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s;"
-onmouseenter="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(212,175,55,0.35)'"
-onmouseleave="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)'">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-WhatsApp පණිවිඩයක් එවන්න
-</a>
-</div>
-<div class="anim-fadeup-5" style="margin-top:72px;display:flex;flex-direction:column;align-items:center;gap:8px;">
-<span style="color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;">ක්‍රමවේදය අධ්‍යයනය කරන්න</span>
-<div class="scroll-line"></div>
-</div>
-</div>
-</section>
-<section style="background:#0c0c0c;padding:100px 5%;border-top:1px solid rgba(212,175,55,0.08);border-bottom:1px solid rgba(212,175,55,0.08);">
-<div style="max-width:1200px;margin:0 auto;">
-<div class="reveal" style="text-align:center;margin-bottom:64px;">
-<span class="section-label">විශ්වාසනීයත්වය</span>
-<h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4vw,44px);color:#fff;margin:12px 0 0;">
-උද්‍යෝගිමත් සිසුන්ගේ නොමඳ විශ්වාසය
-</h2>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
-<div class="stat-card reveal reveal-d1">
-<div class="stat-num"><span class="counter" data-target="500" data-suffix="+">0+</span></div>
-<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">මග පෙන්වූ සිසුන් සංඛ්‍යාව</div>
-<div style="color:rgba(255,255,255,0.4);font-size:13px;">පාසල් සහ විශ්වවිද්‍යාල මට්ටමින්</div>
-<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-</div>
-<div class="stat-card reveal reveal-d2">
-<div class="stat-num"><span class="counter" data-target="98" data-suffix="%">0%</span></div>
-<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">මතකයේ රැඳී පැවතීමේ ප්‍රතිශතය</div>
-<div style="color:rgba(255,255,255,0.4);font-size:13px;">මතක විද්‍යා ශිල්පීය ක්‍රම හරහා</div>
-<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-</div>
-<div class="stat-card reveal reveal-d3">
-<div class="stat-num"><span class="counter" data-target="12" data-suffix="+">0+</span></div>
-<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">ගුරු අත්දැකීම් කාලය</div>
-<div style="color:rgba(255,255,255,0.4);font-size:13px;">විශ්වවිද්‍යාලයීය TESL ප්‍රවීණත්වය සමඟ</div>
-<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-</div>
-<div class="stat-card reveal reveal-d4">
-<div class="stat-num"><span class="counter" data-target="6" data-suffix="">0</span></div>
-<div style="color:#fff;font-weight:600;font-size:15px;margin:8px 0 6px;">ප්‍රධාන ශිල්පීය ක්‍රමවේද</div>
-<div style="color:rgba(255,255,255,0.4);font-size:13px;">සංජානන සහ මතක රඳවා ගැනීමේ පද්ධති</div>
-<div style="position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 16px 0 80px;background:rgba(212,175,55,0.04);"></div>
-</div>
-</div>
-</div>
-</section>
-<section id="method" style="background:#080808;padding:120px 5%;">
-<div style="max-width:1200px;margin:0 auto;">
-<div class="reveal" style="max-width:640px;margin-bottom:72px;">
-<span class="section-label">Lexora ක්‍රමවේදය</span>
-<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 18px;line-height:1.2;">
-මතක විද්‍යාව තුළින්<br>
-<em class="gold-text">භාෂාව හැසිරවීමේ කලාව</em>
-</h2>
-<p style="color:rgba(255,255,255,0.5);font-size:16px;line-height:1.75;font-weight:300;">
-සාම්ප්‍රදායික ක්‍රම මගින් කරන්නේ ඉංග්‍රීසි ඉගැන්වීම පමණි. නමුත් Lexora විසින් එය මොළයට ධාරණය කරවන තාක්‍ෂණයක් බවට පත් කරයි. අපගේ සෑම තාක්‍ෂණයක්ම සංජානන ස්නායු විද්‍යාව සහ ප්‍රායෝගික ඉගෙනුම් මනෝවිද්‍යාව මත පදනම් වේ.
-</p>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-<div class="method-card reveal reveal-d1">
-<div style="font-size:32px;margin-bottom:18px;"> 🧠 </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">මතක මන්දිර ව්‍යුහය</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">ගෝඛ් කිරීම වෙනුවට, වචන ඔබේ මතකයේ ස්ථිරව තැන්පත් කිරීම සඳහා අපි විචිත්‍රවත් මානසික රූප සමඟ සම්බන්ධ වූ මතක මන්දිර (Memory Palaces) නිර්මාණය කරමු.</p>
-</div>
-<div class="method-card reveal reveal-d2">
-<div style="font-size:32px;margin-bottom:18px;"> 🔁 </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">කාලාන්තර පුනරාවර්තන පද්ධතිය</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">Lexora හි පුනරීක්ෂණ චක්‍ර මොළයේ 'අමතක වීමේ වක්‍රයට' (Forgetting Curve) ගැලපෙන සේ සකසා ඇති බැවින්, වචන මතකයෙන් ගිලිහී යාමට පෙරම නැවත තහවුරු කෙරේ.</p>
-</div>
-<div class="method-card reveal reveal-d3">
-<div style="font-size:32px;margin-bottom:18px;"> 🗣️ </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සක්‍රීය මතක කැඳවීමේ කථනය (Active Recall Speaking)</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">නිෂ්ක්‍රීයව අසා සිටීම වෙනුවට, සෑම සැසියකදීම මතකය අවදි කිරීමට ඔබට බල කෙරෙයි. එමඟින් ඕනෑම පීඩනයක් යටතේ වුවද ඉංග්‍රීසි වචන ස්වභාවිකව මතකයට නැඟේ.</p>
-</div>
-<div class="method-card reveal reveal-d4">
-<div style="font-size:32px;margin-bottom:18px;"> 🔗 </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සංකල්පීය සබඳතා ජාල (Association Networks)</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">අලුත් වචන දැනටමත් ඔබ දන්නා සංකල්ප සමඟ සම්බන්ධ කෙරේ. එමඟින් වචන මතකයට නැඟීම කිසිදු වෙහෙසකින් තොරව ස්වයංක්‍රීයව සිදු වේ.</p>
-</div>
-<div class="method-card reveal reveal-d5">
-<div style="font-size:32px;margin-bottom:18px;"> 🎯 </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">සන්නිවේදන පරිසර කේතනය (Contextual Encoding)</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">භාෂාව ඉගෙන ගන්නේ ප්‍රායෝගික වටපිටාවන් තුළයි — සම්මුඛ සාකච්ඡා, ඉදිරිපත් කිරීම් සහ එදිනෙදා සාකච්ඡා හරහා ක්ෂණික ප්‍රායෝගික භාවිතය පුහුණු කෙරේ.</p>
-</div>
-<div class="method-card reveal reveal-d6">
-<div style="font-size:32px;margin-bottom:18px;"> ⚡ </div>
-<h3 style="font-weight:700;font-size:17px;color:#fff;margin:0 0 10px;">ත්වරිත භාෂා ධාරණය (Accelerated Acquisition)</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;">භාෂා රටා හඳුනා ගැනීම (Pattern Recognition) සහ තොරතුරු කාණ්ඩගත කිරීම මගින්, වසර ගණනාවක් ගතවන භාෂා හැසිරවීමේ හැකියාව මාස කිහිපයකට කෙටි කරයි.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="transformation" style="background:#0a0a0a;padding:120px 5%;position:relative;overflow:hidden;">
-<div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.04) 0%, transparent 70%);pointer-events:none;"></div>
-<div style="max-width:1200px;margin:0 auto;position:relative;">
-<div class="reveal" style="text-align:center;margin-bottom:72px;">
-<span class="section-label">පැහැදිලි වෙනස</span>
-<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
-පැකිලීමේ සිට<br><em class="gold-text">ප්‍රවීණත්වය දක්වා</em>
-</h2>
-</div>
-<div class="transform-grid">
-<div class="before-card reveal reveal-d1">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-<div class="icon-circle-red"> ✗ </div>
-<span style="font-weight:700;font-size:18px;color:rgba(255,120,120,0.9);">Lexora වලට පෙර</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">කතා කරන විට මැදදී වචන අමතක වී ගොත ගැසීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">ව්‍යාකරණ නීති කටපාඩම් කළත් මතකයේ නොරැඳීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">සිංහලෙන් සිතා එය ඉංග්‍රීසියට පරිවර්තනය කිරීමට උත්සාහ කිරීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">ඉගෙන ගන්නා වචන දින කිහිපයකින් අමතක වී යාම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">වැරදීම් සිදු වේ යැයි අන් අය විවේචනය කරයි යන බිය</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-red"></div><span style="color:rgba(255,255,255,0.4);font-size:14px;line-height:1.6;">සම්මුඛ සාකච්ඡා සහ ප්‍රසන්ටේෂන් වලදී ආත්මවිශ්වාසය අඩු වීම</span></div>
-</div>
-<div class="after-card reveal reveal-d2">
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-<div class="icon-circle-gold"> ✓ </div>
-<span style="font-weight:700;font-size:18px;color:#d4af37;">Lexora සමඟ</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">අදහස් චතුර ලෙස සහ ස්වභාවිකව ප්‍රකාශ කිරීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">වචන සහ වාක්‍ය ඛණ්ඩ ක්ෂණිකව මතකයට නැඟීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">ඍජුවම ඉංග්‍රීසි භාෂාවෙන් සිතීමට හුරු වීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">මතක ශිල්පීය ක්‍රම නිසා වචන ජීවිත කාලයටම මතකයේ රැඳීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">පිරිසක් ඉදිරියේ පැහැදිලි පෞරුෂයකින් යුතුව කතා කිරීම</span></div>
-<div style="display:flex;align-items:flex-start;gap:12px;"><div class="transform-dot-gold"></div><span style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">සම්මුඛ සාකච්ඡා, ප්‍රසන්ටේෂන් සහ ජාත්‍යන්තර අවස්ථා ජය ගැනීම</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="courses" style="background:#080808;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
-<div style="max-width:1200px;margin:0 auto;">
-<div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;">
-<div>
-<span class="section-label">වැඩසටහන්</span>
-<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.5vw,52px);color:#fff;margin:14px 0 0;line-height:1.1;">
-ඔබේ අරමුණුවලට ගැලපෙන<br><em class="gold-text">විශේෂිත පාඨමාලා</em>
-</h2>
-</div>
-<a href="https://wa.me/94XXXXXXXXX"
-style="color:#d4af37;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:0.04em;border-bottom:1px solid rgba(212,175,55,0.4);padding-bottom:2px;">
-සියලුම වැඩසටහන් බලන්න →
-</a>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
-<div class="course-card reveal reveal-d1">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">ප්‍රධානතම</span><span style="font-size:28px;"> 💬 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Spoken English Mastery</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">පැකිලීමකින් තොරව, සක්‍රීය මතක කැඳවීම් සහ ප්‍රායෝගික සාකච්ඡා මගින් ස්වභාවික කථන හැකියාව සහ චතුරභාවය වර්ධනය කරන මතකය පාදක කරගත් කථන පුහුණුව.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 12</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ඕනෑම මට්ටමකට</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-<div class="course-card reveal reveal-d2">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">ජනප්‍රිය</span><span style="font-size:28px;"> 📚 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Academic English</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">තරඟකාරී විභාග සහ උසස් අධ්‍යාපනය සඳහා අවශ්‍ය වන විශ්වවිද්‍යාල මට්ටමේ ලිවීම්, කියවා තේරුම් ගැනීම් සහ ශාස්ත්‍රීය ප්‍රකාශන ශිල්පීය ක්‍රම.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 10</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම මට්ටම</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-<div class="course-card reveal reveal-d3">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">වෘත්තීය</span><span style="font-size:28px;"> 💼 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Professional Communication</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">වෘත්තීය දියුණුව සඳහා කාර්යාලීය ඉංග්‍රීසි භාවිතය, ඊමේල් ලිවීම, සාකච්ඡා සම්මුතීන් පැවැත්වීම සහ ඉහළ කළමනාකාරීත්ව මට්ටමේ සන්නිවේදනය.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 8</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම+ මට්ටම</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-<div class="course-card reveal reveal-d4">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">ඉහළ බලපෑමක්</span><span style="font-size:28px;"> 🎯 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Interview Confidence</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">වචන මාලා මතක තබා ගැනීම, ව්‍යුහගත පිළිතුරු සැපයීම සහ මානසික ආත්මවිශ්වාසය වර්ධනය කිරීමේ ක්‍රමවේද ඇතුළත් ඉලක්කගත සම්මුඛ සාකච්ඡා සූදානම.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 4</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ඕනෑම මට්ටමකට</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-<div class="course-card reveal reveal-d5">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">දක්ෂතා</span><span style="font-size:28px;"> 🎤 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Presentation Mastery</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">පිරිසක් ඉදිරියේ අවධානය දිනා ගැනීම, අදහස් ප්‍රබල ලෙස පෙළගැස්වීම, අනවශ්‍ය වචන භාවිතය (filler language) නැවැත්වීම සහ ඉහළ විශ්වාසයකින් ඉදිරිපත් කිරීම.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 6</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  මධ්‍යම මට්ටම</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-<div class="course-card reveal reveal-d6">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
-<span class="course-tag">පදනම</span><span style="font-size:28px;"> 🧩 </span>
-</div>
-<h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#fff;margin:0 0 12px;">Memory Vocabulary System</h3>
-<p style="color:rgba(255,255,255,0.45);font-size:14px;line-height:1.7;font-weight:300;margin:0 0 24px;flex:1;">නිතර භාවිත වන ඉහළ වටිනාකමකින් යුතු වචන 2000ක්, මතක ව්‍යුහයන් (Mnemonic Architecture) හරහා ජීවිත කාලයටම ධාරණය කර ක්ෂණිකව මතකයට නැඟීමේ පද්ධතිය.</p>
-<div style="display:flex;gap:16px;margin-bottom:24px;">
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> ⏱  සති 8</span>
-<span style="color:rgba(255,255,255,0.35);font-size:12px;"> 📊  ආරම්භක+ මට්ටම</span>
-</div>
-<a href="https://wa.me/94XXXXXXXXX" class="course-cta">විමසීම් කරන්න</a>
-</div>
-</div>
-</div>
-</section>
-<section id="testimonials" style="background:#0c0c0c;padding:120px 5%;border-top:1px solid rgba(212,175,55,0.08);">
-<div style="max-width:1200px;margin:0 auto;">
-<div class="reveal" style="text-align:center;margin-bottom:64px;">
-<span class="section-label">සිසුන්ගේ අත්දැකීම්</span>
-<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,4vw,48px);color:#fff;margin:14px 0 0;">
-සැබෑ වෙනස්කම්.<br><em class="gold-text">විශ්වාසනීය ප්‍රතිඵල.</em>
-</h2>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
-<div class="testi-card reveal reveal-d1">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම ව්‍යාකරණ දැනගෙන හිටියත් කතා කරන්න ගියාම හිරවුණා. Lexora ගේ නිමොනික් (mnemonic) ක්‍රමය මගේ මොළය ඉංග්‍රීසි හසුරුවන විදිහ සම්පූර්ණයෙන්ම වෙනස් කළා. මාස තුනකට පස්සේ මම දැන් විශ්වවිද්‍යාල සෙමිනාර්ස් වල විශ්වාසයෙන් ප්‍රසන්ටේෂන් කරනවා.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">T</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">තරුෂි P.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">විශ්වවිද්‍යාල ශිෂ්‍යාව, කොළඹ</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-<div class="testi-card reveal reveal-d2">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මතකය මත පදනම් වූ වචන මාලා පද්ධතිය මම මීට පෙර උත්සාහ කර ඇති කිසිම දෙයකට සමාන නැහැ. ඔවුන්ගේ ඇසෝසියේෂන් ක්‍රමය හරහා මම ඉගෙන ගත් වචන මාස හයකට පස්සෙත් අලුත් වගේ මතකයි. මගේ ඊමේල් සහ ප්‍රසන්ටේෂන් දැන් සම්පූර්ණයෙන්ම වෙනස් මට්ටමක තියෙන්නේ.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">K</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">කවිඳ R.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">අලෙවිකරණ වෘත්තිකකයෙක්</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-<div class="testi-card reveal reveal-d3">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම ඉංග්‍රීසි සම්මුඛ සාකච්ඡා වලට ගොඩක් බය වෙලා හිටියේ. මෙම පාඨමාලාවෙන් මට වචන ලැයිස්තු විතරක් නෙවෙයි, ප්‍රායෝගිකව පිළිතුරු ගොඩනගන ආකාරය කියා දුන්නා. කෝස් එක ඉවර වෙලා සති කිහිපයක් ඇතුළත මට මගේ පළමු රැකියාව ලබා ගන්න පුළුවන් වුණා.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">D</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">දිලුක්ෂි M.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">පාසල් හැරගිය ශිෂ්‍යාව, යාපනය</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-<div class="testi-card reveal reveal-d4">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මම බලාපොරොත්තු වුණේ සාමාන්‍ය ඉංග්‍රීසි පන්තියක්. නමුත් මට ලැබුණේ සම්පූර්ණ සංජානන ප්‍රතිනිර්මාණයක් (cognitive rewiring). මම දැන් ඉංග්‍රීසියෙන් හිතනවා — පරිවර්තනය කරන්නේ නැහැ. ගෙවන සෑම රුපියලකටම උපරිම වටිනාකමක් තියෙනවා.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">A</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">අමේෂ් S.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">තොරතුරු තාක්ෂණ (IT) වෘත්තිකයෙක්</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-<div class="testi-card reveal reveal-d5">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">මගේ පාසලේ ඉංග්‍රීසි ගුරුතුමා හොඳයි, නමුත් Lexora ක්‍රියා කරන්නේ හාත්පසින්ම වෙනස් මට්ටමක. ඔවුන් වචන මාලාව සහ කථනය උගන්වන පිටුපස ඇති විද්‍යාව ඇත්තටම විප්ලවීයයි.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">N</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">නිමේෂා W.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">උසස් පෙළ (A/L) ශිෂ්‍යාව</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-<div class="testi-card reveal reveal-d6">
-<div style="color:#d4af37;font-size:36px;line-height:1;margin-bottom:16px;opacity:0.4;font-family:Georgia,serif;">"</div>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.75;font-weight:300;margin:0 0 24px;font-style:italic;">'Premium' යන්න මෙයට දිය හැකි හොඳම වචනයයි. ක්‍රමවේදය, නිබන්ධන, ක්‍රමවත් ප්‍රගතිය — මේ හැමදේකින්ම පෙනෙන්නේ මෙය බැරෑරුම් ලෙස ඉගෙන ගන්නන් සඳහාම නිපදවා ඇති බවයි. මගේ ගෝලීය සන්නිවේදන හැකියාව මේ නිසා විශාල ලෙස දියුණු වුණා.</p>
-<div style="display:flex;align-items:center;gap:12px;">
-<div class="testi-avatar">R</div>
-<div>
-<div style="color:#fff;font-weight:600;font-size:14px;">රජිත් F.</div>
-<div style="color:rgba(255,255,255,0.35);font-size:12px;">ව්‍යවසායකයෙක්</div>
-</div>
-<div style="margin-left:auto;color:#d4af37;font-size:12px;"> ★★★★★ </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section style="background:#080808;padding:140px 5%;text-align:center;position:relative;overflow:hidden;">
-<div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);pointer-events:none;"></div>
-<div class="cta-grid-bg"></div>
-<div style="position:relative;max-width:800px;margin:0 auto;">
-<div class="reveal">
-<div class="hero-badge" style="margin-bottom:36px;display:inline-flex;">
-<span style="color:#d4af37;font-size:12px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">ඔබේ වෙනස අදම අරඹන්න</span>
-</div>
-<h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,6vw,72px);color:#fff;margin:0 0 24px;line-height:1.05;">
-මොළය පුහුණු කරන්න.<br>
-<em class="gold-text">ඉංග්‍රීසි සන්නිවේදනය දියුණු කරන්න.</em>
-</h2>
-<p style="color:rgba(255,255,255,0.5);font-size:clamp(15px,2vw,19px);line-height:1.7;font-weight:300;margin:0 auto 52px;max-width:520px;">
-ඉංග්‍රීසි භාෂාවේ අනාගතය තීරණය වන්නේ ඔබ එය හුදෙක් පාඩම් කිරීම වෙනුවට විද්‍යාත්මකව මොළයට ධාරණය කර ගැනීමට තීරණය කරන මොහොතේ සිටයි.
-</p>
-<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-<a href="https://wa.me/94XXXXXXXXX" class="btn-primary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
-දැන්ම ලියාපදිංචි වන්න — Lexora හා එක්වන්න
-</a>
-<a href="#courses" class="btn-secondary" style="padding:17px 40px;font-size:15px;font-family:'DM Sans',sans-serif;">
-පාඨමාලා ගවේෂණය කරන්න
-</a>
-</div>
-<p style="color:rgba(255,255,255,0.2);font-size:12px;margin-top:32px;letter-spacing:0.05em;">
-බැඳීම් නොමැත · ක්ෂණික ප්‍රතිචාර සඳහා WhatsApp කරන්න · එක් කණ්ඩායමක් සඳහා සීමිත ආසන සංඛ්‍යාවක් පමණි
-</p>
-</div>
-</div>
-</section>
-<footer style="background:#060606;border-top:1px solid rgba(212,175,55,0.1);padding:80px 5% 40px;">
-<div style="max-width:1200px;margin:0 auto;">
-<div class="footer-grid" style="margin-bottom:72px;">
-<div>
-<a href="#" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px;">
-<div class="logo-mark">L</div>
-<span style="font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:#fff;">Lexora</span>
-</a>
-<p style="color:rgba(255,255,255,0.35);font-size:14px;line-height:1.75;font-weight:300;max-width:280px;margin:0 0 24px;">
-මතක විද්‍යාව තුළින් නිර්මාණය වූ භාෂා පුහුණුව. ශ්‍රී ලංකාවේ සහ ඉන් ඔබ්බෙහි සිටින උද්‍යෝගිමත් ඉංග්‍රීසි ඉගෙන ගන්නන් සඳහා වූ ප්‍රිමියම් සංජානන ඉගෙනුම් පද්ධතියකි.
-</p>
-<div style="display:flex;gap:12px;">
-<a href="#" class="social-btn" title="WhatsApp"> 📱 </a>
-<a href="#" class="social-btn" title="Instagram"> 📸 </a>
-<a href="#" class="social-btn" title="Facebook"> 📘 </a>
-</div>
-</div>
-<div>
-<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">පාඨමාලා</h4>
-<a href="#courses" class="footer-link">Spoken English</a>
-<a href="#courses" class="footer-link">Academic English</a>
-<a href="#courses" class="footer-link">Professional Communication</a>
-<a href="#courses" class="footer-link">Interview Confidence</a>
-</div>
-<div>
-<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">ආයතනය</h4>
-<a href="#" class="footer-link">Lexora ගැන</a>
-<a href="#method" class="footer-link">ක්‍රමවේදය</a>
-<a href="#" class="footer-link">අපගේ දර්ශනය</a>
-<a href="#testimonials" class="footer-link">සිසුන්ගේ කතා</a>
-</div>
-<div>
-<h4 style="color:#d4af37;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 20px;">සම්බන්ධ වන්න</h4>
-<a href="https://wa.me/94XXXXXXXXX" class="footer-link">WhatsApp</a>
-<a href="#" class="footer-link">Instagram</a>
-<a href="#" class="footer-link">Facebook</a>
-<a href="mailto:hello@lexora.lk" class="footer-link">ඊමේල් පණිවිඩයක් එවන්න</a>
-</div>
-</div>
-<div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
-<span style="color:rgba(255,255,255,0.2);font-size:13px;">© 2026 Lexora English Academy. සියලුම හිමිකම් ඇවිරිණි.</span>
-<span style="color:rgba(255,255,255,0.2);font-size:13px;font-style:italic;">Language Engineered Through Memory Science™</span>
-</div>
-</div>
-</footer>
-<a id="wa-float" href="https://wa.me/94XXXXXXXXX" title="Chat on WhatsApp">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-</svg>
-</a>
-<script>
-/* ── Nav: scroll effect + burger ── */
-const nav = document.getElementById('main-nav');
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobile-menu');
-window.addEventListener('scroll', () => {
-nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-burger.addEventListener('click', () => {
-burger.classList.toggle('open');
-mobileMenu.classList.toggle('open');
-});
-function closeMobile() {
-burger.classList.remove('open');
-mobileMenu.classList.remove('open');
-}
-/* ── Hero: mouse-tracking orb ── */
-const heroOrb = document.getElementById('hero-orb');
-document.addEventListener('mousemove', (e) => {
-const x = (e.clientX / window.innerWidth) * 100;
-const y = (e.clientY / window.innerHeight) * 100;
-heroOrb.style.left = `calc(${x}% - 300px)`;
-heroOrb.style.top  = `calc(${y}% - 300px)`;
-});
-/* ── Scroll-reveal (IntersectionObserver) ── */
-const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-revealObs.unobserve(entry.target);
-}
-});
-}, { threshold: 0.12 });
-reveals.forEach(el => revealObs.observe(el));
-/* ── Animated counters ── */
-const counters = document.querySelectorAll('.counter');
-const counterObs = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (!entry.isIntersecting) return;
-const el = entry.target;
-const target = parseInt(el.dataset.target, 10);
-const suffix = el.dataset.suffix || '';
-const duration = 1800;
-const step = Math.ceil(target / (duration / 16));
-let current = 0;
-counterObs.unobserve(el);
-const timer = setInterval(() => {
-current += step;
-if (current >= target) {
-current = target;
-clearInterval(timer);
-}
-el.textContent = current + suffix;
-}, 16);
-});
-}, { threshold: 0.5 });
-counters.forEach(el => counterObs.observe(el));
-/* ── Smooth scroll for anchor links ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-e.preventDefault();
-const offset = 80;
-const top = target.getBoundingClientRect().top + window.scrollY - offset;
-window.scrollTo({ top, behavior: 'smooth' });
-}
-});
-});
-</script>
+<body class="selection:bg-gold selection:text-navy-900">
+
+  <!-- 1. TOP URGENCY STICKY BAR -->
+  <div class="bg-navy-950 border-b border-gold/30 py-2.5 px-4 text-center text-xs sm:text-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+      <span class="inline-flex items-center gap-1.5 text-gold font-semibold uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        2027 ජනවාරි කණ්ඩායම (Post-A/L & Career Batch)
+      </span>
+      <span class="text-slate-200">
+        නොමිලේ පැවැත්වෙන Live Masterclass: <strong class="text-white">2027 ජනවාරි 21 (රාත්‍රී 7:30)</strong> | පළමු පන්තිය: <strong class="text-white">ජනවාරි 28</strong>
+      </span>
+      <button onclick="openModal()" class="bg-gold/20 hover:bg-gold/30 text-gold-light border border-gold/40 px-3 py-0.5 rounded-full text-xs font-bold transition">
+        නොමිලේ ආසනය වෙන්කරගන්න →
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. MAIN NAVIGATION -->
+  <header class="bg-navy-900/90 backdrop-blur-md border-b border-white/10 sticky top-[41px] z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <!-- Official Crest SVG -->
+        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+          <path d="M5 8L20 3L35 8V22C35 31 20 37 20 37C20 37 5 31 5 22V8Z" stroke="#D4A95A" stroke-width="2.2" fill="#040F1D"/>
+          <path d="M20 10V30M12 18H28" stroke="#D4A95A" stroke-width="1.8"/>
+        </svg>
+        <div>
+          <span class="font-heading font-extrabold text-base sm:text-lg tracking-wider text-white block leading-none">LEXORA ENGLISH ACADEMY™</span>
+          <span class="text-[10px] tracking-widest uppercase text-gold font-semibold">Accelerated English Memory Training™</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-300 font-medium">
+        <a href="#deposition" class="hover:text-gold transition">ඇයි පරණ ක්‍රම අසාර්ථක?</a>
+        <a href="#method" class="hover:text-gold transition">Pattern-Lock™ ක්‍රමවේදය</a>
+        <a href="#ai-app" class="hover:text-gold transition">Lexora AI App</a>
+        <a href="#curriculum" class="hover:text-gold transition">සති 8 පාඨමාලාව</a>
+        <a href="#offer" class="hover:text-gold transition">ශිෂ්‍යත්ව දීමනාව</a>
+      </nav>
+
+      <button onclick="openModal()" class="gold-btn px-5 py-2.5 rounded-lg text-xs sm:text-sm font-heading">
+        Jan 21 Free Class →
+      </button>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION (Left Visual / Right Analytical Copy for Brain Hemisphere Alignment) -->
+  <section class="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 tech-grid overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- LEFT COLUMN: Visual Pattern-Lock + AI App Mockup -->
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="navy-card rounded-2xl p-6 relative shadow-2xl border border-gold/40">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+            <div>
+              <span class="text-[11px] uppercase tracking-widest text-gold font-bold block">ශ්‍රී ලංකාවේ ප්‍රථම වතාවට</span>
+              <h3 class="font-heading font-bold text-lg text-white">The Pattern-Lock System™ + AI</h3>
+            </div>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs px-3 py-1 rounded-full font-semibold">
+              FREE With Course
+            </span>
+          </div>
+
+          <!-- 3x3 Pattern Lock SVG Diagram -->
+          <div class="bg-navy-950 rounded-xl p-5 mb-5 border border-white/10 flex items-center justify-between gap-4">
+            <svg class="w-28 h-28 flex-shrink-0" viewBox="0 0 180 180">
+              <path d="M30 30 L90 30 L150 90 L90 150 L30 150" fill="none" stroke="#D4A95A" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="30" cy="30" r="11" fill="#071A32" stroke="#D4A95A" stroke-width="3"/><circle cx="30" cy="30" r="4" fill="#F3E7C4"/>
+              <circle cx="90" cy="30" r="11" fill="#071A32" stroke="#D4A95A" stroke-width="3"/><circle cx="90" cy="30" r="4" fill="#F3E7C4"/>
+              <circle cx="150" cy="30" r="8" fill="#071A32" stroke="#3B5980" stroke-width="2"/>
+              <circle cx="30" cy="90" r="8" fill="#071A32" stroke="#3B5980" stroke-width="2"/>
+              <circle cx="90" cy="90" r="8" fill="#071A32" stroke="#3B5980" stroke-width="2"/>
+              <circle cx="150" cy="90" r="11" fill="#071A32" stroke="#D4A95A" stroke-width="3"/><circle cx="150" cy="90" r="4" fill="#F3E7C4"/>
+              <circle cx="30" cy="150" r="11" fill="#071A32" stroke="#D4A95A" stroke-width="3"/><circle cx="30" cy="150" r="4" fill="#F3E7C4"/>
+              <circle cx="90" cy="150" r="11" fill="#071A32" stroke="#D4A95A" stroke-width="3"/><circle cx="90" cy="150" r="4" fill="#F3E7C4"/>
+              <circle cx="150" cy="150" r="8" fill="#071A32" stroke="#3B5980" stroke-width="2"/>
+            </svg>
+            <div class="text-xs space-y-2 text-slate-300">
+              <div class="text-gold font-bold uppercase tracking-wider">Zero-Translation Rule™</div>
+              <p>සිංහලෙන් හිතා ඉංග්‍රීසියට පරිවර්තනය කිරීම නවත්වා, දුරකථනයක Pattern Lock එකක් මෙන් වාක්‍ය රටා මොළයේ ස්ථිරව තැන්පත් කරයි.</p>
+            </div>
+          </div>
+
+          <!-- Live AI Speaking Partner Preview -->
+          <div class="bg-navy-950/90 rounded-xl p-4 border border-gold/30">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold text-slate-300">🎙️ Lexora AI Speaking Partner (15 Mins/Day)</span>
+              <span class="text-xs text-gold font-bold">WPM: 118 (Fluent)</span>
+            </div>
+            <div class="flex items-center justify-center gap-1.5 h-10 my-2">
+              <div class="voice-bar" style="animation-delay:0.1s"></div>
+              <div class="voice-bar" style="animation-delay:0.3s"></div>
+              <div class="voice-bar" style="animation-delay:0.2s"></div>
+              <div class="voice-bar" style="animation-delay:0.5s"></div>
+              <div class="voice-bar" style="animation-delay:0.15s"></div>
+              <div class="voice-bar" style="animation-delay:0.4s"></div>
+              <div class="voice-bar" style="animation-delay:0.25s"></div>
+              <div class="voice-bar" style="animation-delay:0.45s"></div>
+            </div>
+            <p class="text-[11px] text-slate-400 text-center">
+              සෑම දිනකම මිනිත්තු 15ක් AI සමඟ චකිතයකින් තොරව ඉංග්‍රීසි කතා කර සතිපතා ප්‍රගති වාර්තාවක් ලබාගන්න.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Analytical Value Proposition & CTA -->
+      <div class="lg:col-span-7 order-1 lg:order-2 text-left">
+        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-gold text-xs font-bold uppercase tracking-widest">
+            Post-A/L, විශ්වවිද්‍යාල සහ රැකියා අපේක්ෂිතයන් සඳහා විශේෂයි
+          </span>
+        </div>
+
+        <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-[52px] leading-[1.18] text-white mb-6">
+          වසර 13ක් ඉංග්‍රීසි ඉගෙන ගෙනත් කතා කරද්දී වචන හිරවෙනවාද? <br />
+          <span class="gold-gradient-text">වැරැද්ද ඔබේ නොවේ — ඔබට ඉගැන්වූ පරණ ක්‍රමයේය.</span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+          ව්‍යාකරණ නීති කටපාඩම් කරන සාම්ප්‍රදායික පන්තිවලට සමුදෙන්න. <strong>සති 8ක මතක විද්‍යා පුහුණුව (Cognitive Memory Science)</strong> සහ ශ්‍රී ලංකාවේ ප්‍රථම වතාවට පාඨමාලාව සමඟ <strong>නොමිලේ ලැබෙන දිනකට මිනිත්තු 15ක AI Speaking App</strong> එක හරහා චතුර ලෙස ඉංග්‍රීසි කතා කිරීමට හුරුවන්න.
+        </p>
+
+        <!-- Key Dates Box -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-xl">
+          <div class="bg-navy-800/90 border border-gold/30 rounded-xl p-4">
+            <span class="text-xs uppercase text-gold font-bold block">නොමිලේ පැවැත්වෙන Masterclass</span>
+            <span class="text-lg font-heading font-bold text-white">2027 ජනවාරි 21 (බ්‍රහස්පතින්දා)</span>
+            <span class="text-xs text-slate-400 block mt-0.5">රාත්‍රී 7:30 ට (Zoom Live)</span>
+          </div>
+          <div class="bg-navy-800/90 border border-white/15 rounded-xl p-4">
+            <span class="text-xs uppercase text-emerald-400 font-bold block">සති 8 පාඨමාලාවේ පළමු දිනය</span>
+            <span class="text-lg font-heading font-bold text-white">2027 ජනවාරි 28 (බ්‍රහස්පතින්දා)</span>
+            <span class="text-xs text-slate-400 block mt-0.5">ජනවාරි ශිෂ්‍යත්ව දීමනාව: රු. 15,000 (වටිනාකම රු. 24,000)</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button onclick="openModal()" class="gold-btn px-8 py-4 rounded-xl text-base font-heading text-center">
+            ජනවාරි 21 Free Masterclass එකට ලියාපදිංචි වන්න →
+          </button>
+          <a href="https://wa.me/94788874444?text=Hi%20Lexora%2C%20I%20want%20to%20join%20the%20Jan%2021%20Free%20Masterclass" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2.5 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-6 py-4 rounded-xl text-base font-semibold transition">
+            <span>WhatsApp හරහා විමසන්න (+94 78 887 4444)</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. DE-POSITIONING SECTION (Why Old Methods Failed) -->
+  <section id="deposition" class="py-20 px-4 sm:px-6 lg:px-8 bg-navy-950 border-y border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <span class="text-gold text-xs uppercase tracking-widest font-bold">Category De-Positioning</span>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mt-2 mb-4">
+          සාම්ප්‍රදායික ඉංග්‍රීසි පන්ති ඔබේ මොළයට නොගැලපෙන්නේ ඇයි?
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          අපගේ මොළය නිර්මාණය වී ඇත්තේ ව්‍යාකරණ වගු සහ වචන ලැයිස්තු කටපාඩම් කිරීමට නොව, රූප, රටා (Patterns) සහ ප්‍රායෝගික භාවිතය හරහා භාෂාවක් ධාරණය කර ගැනීමටයි.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+        <!-- Competitor Tier 1 -->
+        <div class="bg-navy-900/60 border border-red-500/20 rounded-2xl p-7">
+          <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-red-500/10 text-red-400">සාම්ප්‍රදායික ආයතන</span>
+          <h3 class="font-heading font-bold text-xl text-white mt-4 mb-3">වසර 1–2ක දිගු පාඨමාලා (රු. 50,000+)</h3>
+          <ul class="space-y-3 text-sm text-slate-400">
+            <li>✗ ප්‍රතිඵලයක් ගැනීමට වසර ගණනාවක් ගතවේ</li>
+            <li>✗ විශ්වවිද්‍යාල හෝ රැකියා සම්මුඛ සාකච්ඡා සඳහා ඉක්මන් විසඳුමක් නැත</li>
+            <li>✗ පුද්ගලික AI කථන පුහුණුකරුවෙකු නොමැත</li>
+          </ul>
+        </div>
+
+        <!-- Competitor Tier 2 -->
+        <div class="bg-navy-900/60 border border-red-500/20 rounded-2xl p-7">
+          <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-red-500/10 text-red-400">සාමාන්‍ය ටියුෂන් පන්ති</span>
+          <h3 class="font-heading font-bold text-xl text-white mt-4 mb-3">ව්‍යාකරණ කටපාඩම් කිරීම</h3>
+          <ul class="space-y-3 text-sm text-slate-400">
+            <li>✗ සිංහලෙන් සිතා ඉංග්‍රීසියට පරිවර්තනය කිරීමට පුරුදු කරයි</li>
+            <li>✗ වචන 1000ක් පොතේ ලියා ගත්තත් කතා කරද්දී වචන 10ක්වත් මතකයට නොඑයි</li>
+            <li>✗ ළමුන් සිය ගණනක් මැද කතා කිරීමට අවස්ථාවක් නොලැබේ</li>
+          </ul>
+        </div>
+
+        <!-- Lexora Advantage -->
+        <div class="navy-card rounded-2xl p-7 border-2 border-gold relative">
+          <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-gold text-navy-950">LEXORA ක්‍රමවේදය</span>
+          <h3 class="font-heading font-bold text-xl text-gold-light mt-4 mb-3">සති 8ක මතක විද්‍යාව + දිනපතා AI පුහුණුව</h3>
+          <ul class="space-y-3 text-sm text-slate-200">
+            <li>✓ <strong>The Pattern-Lock System™</strong> මගින් පරිවර්තනයෙන් තොරව ක්ෂණිකව කතා කරවයි</li>
+            <li>✓ <strong>දිනකට මිනිත්තු 15ක්</strong> ඔබේම AI Tutor සමඟ ලැජ්ජාවකින් තොරව කතා කිරීමේ අවස්ථාව</li>
+            <li>✓ සෑම සතියකම ඔබේ WPM වේගය සහ ව්‍යාකරණ දෝෂ පෙන්වන වාර්තාවක්</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROPRIETARY METHOD & INTERACTIVE MEMORY DEMO -->
+  <section id="method" class="py-20 px-4 sm:px-6 lg:px-8 bg-navy-900">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Interactive 30-Second Demo Box (Left) -->
+        <div class="lg:col-span-6 reveal">
+          <div class="navy-card rounded-2xl p-7 border border-gold/40">
+            <span class="text-xs font-bold uppercase tracking-wider text-gold">තත්පර 30ක සජීවී පරීක්ෂණය</span>
+            <h3 class="font-heading font-bold text-xl text-white mt-1 mb-3">
+              The Sentence Skeleton™ ක්‍රියා කරන ආකාරය දැන්ම අත්හදා බලන්න:
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 mb-5">
+              ව්‍යාකරණ නීති 50ක් මතක තබා ගැනීම වෙනුවට, අපගේ <strong>Time → Subject → Action → Object</strong> සැකිල්ල භාවිතා කර පහත බොත්තම් ක්ලික් කරන්න:
+            </p>
+
+            <div class="grid grid-cols-3 gap-2 mb-5">
+              <button onclick="showPattern(1)" id="pat-btn-1" class="bg-gold text-navy-950 font-bold text-xs py-2.5 px-3 rounded-lg transition">1. Past Pattern</button>
+              <button onclick="showPattern(2)" id="pat-btn-2" class="bg-navy-950 text-slate-300 border border-white/15 font-bold text-xs py-2.5 px-3 rounded-lg transition">2. Present Action</button>
+              <button onclick="showPattern(3)" id="pat-btn-3" class="bg-navy-950 text-slate-300 border border-white/15 font-bold text-xs py-2.5 px-3 rounded-lg transition">3. Future Plan</button>
+            </div>
+
+            <div id="pattern-output" class="bg-navy-950 rounded-xl p-5 border border-gold/30 text-sm space-y-2">
+              <div class="text-xs text-gold font-bold uppercase">The Sentence Skeleton™ (අතීත රටාව):</div>
+              <div class="text-white font-semibold text-base">[Yesterday] ➔ [I] ➔ [completed] ➔ [the project report.]</div>
+              <p class="text-xs text-slate-400">සිංහලෙන් පරිවර්තනය නොකර, කාලය (Time) මුලට දමා තත්පර 2න් වාක්‍යය ගොඩනඟයි. ජනවාරි 21 Free Masterclass එකේදී මෙවැනි රටා රැසක් සජීවීව පුහුණු කෙරේ!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Core Scientific Pillars (Right) -->
+        <div class="lg:col-span-6 space-y-5 reveal">
+          <span class="text-gold text-xs uppercase tracking-widest font-bold">Language Engineered Through Memory Science™</span>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white">
+            ඔබේ මොළය ඉංග්‍රීසි භාෂාවට සුසර කරන විද්‍යාත්මක පියවර 4
+          </h2>
+
+          <div class="space-y-4">
+            <div class="bg-navy-950/70 border border-white/10 rounded-xl p-4">
+              <h4 class="font-heading font-bold text-gold-light text-base">01. The Pattern-Lock System™ & Sentence Skeleton™</h4>
+              <p class="text-slate-300 text-xs sm:text-sm mt-1">ව්‍යාකරණ සූත්‍ර වෙනුවට ක්ෂණිකව කතා කළ හැකි වාක්‍ය ආකෘති මොළයේ ස්ථිරව තැන්පත් කරයි.</p>
+            </div>
+            <div class="bg-navy-950/70 border border-white/10 rounded-xl p-4">
+              <h4 class="font-heading font-bold text-gold-light text-base">02. Mnemonic Visual & Acoustic Association (චිත්තරූප ක්‍රමවේදය)</h4>
+              <p class="text-slate-300 text-xs sm:text-sm mt-1">7 Sound Families සහ චිත්තරූප කතන්දර හරහා අමාරු වචන කිසිදා අමතක නොවන ලෙස දිගුකාලීන මතකයට ඇතුළත් කරයි.</p>
+            </div>
+            <div class="bg-navy-950/70 border border-white/10 rounded-xl p-4">
+              <h4 class="font-heading font-bold text-gold-light text-base">03. The Zero-Translation Rule™</h4>
+              <p class="text-slate-300 text-xs sm:text-sm mt-1">සිංහලෙන් සිතා ඉංග්‍රීසියට පරිවර්තනය කිරීමේ ප්‍රමාදය නවත්වා සෘජුවම ඉංග්‍රීසියෙන් සිතා කතා කිරීමට හුරු කරවයි.</p>
+            </div>
+            <div class="bg-navy-950/70 border border-white/10 rounded-xl p-4">
+              <h4 class="font-heading font-bold text-gold-light text-base">04. Spaced Repetition & Active Recall</h4>
+              <p class="text-slate-300 text-xs sm:text-sm mt-1">මොළයේ 'අමතක වීමේ වක්‍රය' (Forgetting Curve) පරාජය කරමින් නිසි කාල පරතරයන් තුළ වචන නැවත සිහිපත් කරවයි.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SRI LANKA'S FIRST AI SPEAKING PARTNER SECTION -->
+  <section id="ai-app" class="py-20 px-4 sm:px-6 lg:px-8 bg-navy-950 border-t border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <span class="bg-gold/20 text-gold border border-gold/40 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          ශ්‍රී ලංකාවේ පාඨමාලාවක් සමඟ ලැබෙන ප්‍රථම AI පද්ධතිය
+        </span>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mt-4 mb-4">
+          සතියකට පැය 2ක පන්තියට අමතරව, <span class="gold-gradient-text">දිනපතා මිනිත්තු 15ක් කතා කිරීමට ඔබේම AI Tutor!</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          බොහෝ සිසුන්ට ඉංග්‍රීසි කතා කිරීමට බියක් (Foreign Language Anxiety) ඇති වන්නේ අන් අය තමන්ගේ වැරදි වලට සිනාසෙයි යන බිය නිසාය. Lexora AI App එක හරහා ඔබට කිසිදු ලැජ්ජාවකින් තොරව දිනපතා පුහුණු විය හැක.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+        <div class="navy-card rounded-2xl p-7">
+          <div class="text-gold font-heading font-black text-2xl mb-2">15 Mins / Day</div>
+          <h3 class="font-heading font-bold text-lg text-white mb-2">සජීවී හඬ සංවාද (Real-Time Voice)</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            ටයිප් කිරීමක් නොවේ! සැබෑ ගුරුවරයෙකු සමඟ දුරකථනයෙන් කතා කරන ආකාරයටම සම්මුඛ සාකච්ඡා, කාර්යාලීය සංවාද සහ එදිනෙදා මාතෘකා ඔස්සේ AI සමඟ කතා කරන්න.
+          </p>
+        </div>
+
+        <div class="navy-card rounded-2xl p-7">
+          <div class="text-gold font-heading font-black text-2xl mb-2">Instant Diagnostics</div>
+          <h3 class="font-heading font-bold text-lg text-white mb-2">ව්‍යාකරණ සහ උච්චාරණ නිවැරදි කිරීම්</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            සෑම මිනිත්තු 15ක සැසියක් අවසානයේම ඔබ කතා කළ වේගය (Words Per Minute), ඔබ හිරවූ ස්ථාන, සහ ඔබ අතින් සිදුවූ ව්‍යාකරණ වැරදි නිවැරදි කරන ආකාරය පෙන්වා දෙයි.
+          </p>
+        </div>
+
+        <div class="navy-card rounded-2xl p-7">
+          <div class="text-gold font-heading font-black text-2xl mb-2">Weekly Progress Report</div>
+          <h3 class="font-heading font-bold text-lg text-white mb-2">පුද්ගලික අනුවර්තන ඉගෙනුම (Adaptive AI)</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            සෑම සතියකම ඔබට නිතර වරදින ව්‍යාකරණ කොටස් (උදා: Past Tense හෝ Prepositions) හඳුනාගෙන ඊළඟ සතියේ සංවාද ඒ අනුව ස්වයංක්‍රීයව සකස් කරයි.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 8-WEEK COGNITIVE CURRICULUM ROADMAP -->
+  <section id="curriculum" class="py-20 px-4 sm:px-6 lg:px-8 bg-navy-900 border-t border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <span class="text-gold text-xs uppercase tracking-widest font-bold">8-Week Structured Roadmap</span>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mt-2 mb-4">
+          සති 8ක පාඨමාලා සැලැස්ම (ජනවාරි 28 ආරම්භ වේ)
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          පාඨමාලා 6ක පැටලෙන්නේ නැතිව, කථනය, ව්‍යාකරණ, වචන මාලාව සහ සම්මුඛ සාකච්ඡා යන සියල්ල එකම සති 8ක විද්‍යාත්මක පද්ධතියකට ගොනු කර ඇත.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 01</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">Memory Science Foundation</h4>
+          <p class="text-xs text-slate-300">The Sentence Skeleton™, Chain Method සහ මූලික කථන බිය ඉවත් කිරීම.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 02</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">Present Action & Video Camera Rule</h4>
+          <p class="text-xs text-slate-300">එදිනෙදා ක්‍රියාවන් සහ වර්තමාන කාල වාක්‍ය පැටලීමකින් තොරව හැසිරවීම.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 03</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">The Future Ladder™</h4>
+          <p class="text-xs text-slate-300">අනාගත බලාපොරොත්තු (Desire), සැලසුම් (Plan) සහ හමුවීම් (Appointment) නිවැරදිව ප්‍රකාශ කිරීම.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 04</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">Workplace & Polite Upgrades</h4>
+          <p class="text-xs text-slate-300">කාර්යාලීය සංවාද, PRO Email සූත්‍රය සහ ඉහළ පෞරුෂයකින් යුත් ඉංග්‍රීසි භාවිතය.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 05</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">Tech Vocab & Frequency Ladder</h4>
+          <p class="text-xs text-slate-300">නවීන ශ්‍රී ලංකාවේ ප්‍රවණතා සහ වචන පවුල් (Word Families) මතකයේ රඳවා ගැනීම.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 06</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">7 Sound Families (Past Mastery)</h4>
+          <p class="text-xs text-slate-300">Irregular Verbs කටපාඩම් නොකර ශබ්ද පවුල් 7ක් හරහා අතීත කාලය ජය ගැනීම.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 07</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">Interview & Presentation Confidence</h4>
+          <p class="text-xs text-slate-300">රැකියා සම්මුඛ සාකච්ඡා සහ විශ්වවිද්‍යාල ප්‍රසන්ටේෂන් සඳහා Cognitive Connectors.</p>
+        </div>
+        <div class="navy-card rounded-xl p-5">
+          <span class="text-xs font-bold text-gold">WEEK 08</span>
+          <h4 class="font-heading font-bold text-white text-base mt-1 mb-2">The Speaking Marathon</h4>
+          <p class="text-xs text-slate-300">සජීවී කථන පරීක්ෂණය, AI Fluency වාර්තා ඇගයීම සහ සහතිකපත් ප්‍රදානය.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOUNDER & ACADEMIC CREDIBILITY -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-navy-950 border-t border-white/10">
+    <div class="max-w-5xl mx-auto navy-card rounded-2xl p-8 sm:p-10 reveal">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-4 text-center">
+          <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-gold-light to-gold-dark flex items-center justify-center text-navy-950 font-heading font-black text-4xl shadow-xl">
+            YK
+          </div>
+          <h3 class="font-heading font-bold text-xl text-white mt-4">Yasas Kulasekara</h3>
+          <p class="text-xs text-gold font-semibold uppercase tracking-wider mt-1">Founder & Lead Instructor</p>
+          <p class="text-xs text-slate-400 mt-1">University of Peradeniya | TESL & Cognitive Science Research</p>
+        </div>
+        <div class="md:col-span-8 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <span class="text-gold text-xs uppercase font-bold tracking-widest">නිර්මාතෘගේ පණිවිඩය</span>
+          <p>
+            "රැකියා සම්මුඛ සාකච්ඡාවකදී පැය ගණනක් පාඩම් කළ වචනයක් අමතක වී ගොත ගැසීමේ වේදනාව මමත් අත්විඳ ඇත්තෙමි. පේරාදෙණිය විශ්වවිද්‍යාලයේ TESL සහ Cognitive Science පිළිබඳ පර්යේෂණ සිදු කරන විට මට වැටහුණු ප්‍රධානම සත්‍යය නම්, <strong>ශ්‍රී ලාංකික සිසුන් අසමත් වන්නේ ඔවුන්ගේ බුද්ධියේ අඩුවකින් නොව, මොළයට නොගැලපෙන කටපාඩම් ක්‍රමවේදය නිසා බවයි.</strong>"
+          </p>
+          <p>
+            "Lexora English Academy සහ අපගේ නවතම AI කථන පුහුණු පද්ධතිය නිර්මාණය කර ඇත්තේ, ඔබට සති 8ක් තුළ ඉංග්‍රීසි බිය සදහටම තුරන් කර ප්‍රායෝගික කථන හැකියාව ලබා දීමටයි."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. THE SCHOLARSHIP OFFER STACK & GUARANTEE -->
+  <section id="offer" class="py-20 px-4 sm:px-6 lg:px-8 bg-navy-900 border-t border-gold/20">
+    <div class="max-w-4xl mx-auto navy-card rounded-3xl p-8 sm:p-12 border-2 border-gold shadow-2xl reveal">
+      <div class="text-center mb-8">
+        <span class="bg-gold text-navy-950 font-heading font-extrabold text-xs uppercase px-4 py-1.5 rounded-full">
+          2027 ජනවාරි කණ්ඩායම සඳහා විශේෂ ශිෂ්‍යත්ව දීමනාව
+        </span>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mt-4">
+          සම්පූර්ණ සති 8ක පාඨමාලාව + නොමිලේ AI Speaking App
+        </h2>
+      </div>
+
+      <div class="space-y-3.5 text-sm sm:text-base border-y border-white/10 py-6 my-6">
+        <div class="flex justify-between items-center">
+          <span class="text-slate-200">✓ සති 8ක සජීවී Cognitive English Mastery පුහුණුව (පැය 16)</span>
+          <span class="text-slate-400 font-semibold">වටිනාකම රු. 15,000</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-emerald-300 font-medium">✓ දින 60ක් පුරා දිනකට මිනිත්තු 15ක Lexora AI Speaking App ප්‍රවේශය</span>
+          <span class="text-emerald-300 font-semibold">වටිනාකම රු. 6,000 (FREE)</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-200">✓ සතිපතා ස්වයංක්‍රීය AI Fluency සහ Grammar ප්‍රගති වාර්තා 8ක්</span>
+          <span class="text-slate-400 font-semibold">වටිනාකම රු. 3,000 (FREE)</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-200">✓ The Pattern-Lock™ & Sentence Skeleton™ PDF නිබන්ධන කට්ටලය</span>
+          <span class="text-slate-400 font-semibold">නොමිලේ</span>
+        </div>
+      </div>
+
+      <div class="text-center space-y-4">
+        <div class="text-slate-400 text-sm">
+          සාමාන්‍ය පාඨමාලා ගාස්තුව: <span class="line-through text-red-400 font-bold text-lg">රු. 24,000/-</span>
+        </div>
+        <div class="font-heading font-black text-4xl sm:text-5xl text-gold-light">
+          රු. 15,000/- <span class="text-base font-normal text-slate-300">(රු. 9,000ක ඉතිරියක්)</span>
+        </div>
+        <p class="text-xs sm:text-sm text-emerald-300 font-medium">
+          💡 වාරික දෙකකින් (2 Installments) ගෙවීමේ පහසුකම ඇත. පළමුව ජනවාරි 21 නොමිලේ පැවැත්වෙන Masterclass එකට සහභාගී වී මෙම ක්‍රමවේදයේ වෙනස අත්විඳින්න!
+        </p>
+
+        <div class="pt-4">
+          <button onclick="openModal()" class="gold-btn w-full sm:w-auto px-10 py-4 rounded-xl text-base sm:text-lg font-heading">
+            ජනවාරි 21 Free Masterclass ආසනය දැන්ම වෙන්කරගන්න →
+          </button>
+        </div>
+
+        <!-- CAA-Compliant Week 1 Guarantee -->
+        <p class="text-[11px] text-slate-400 max-w-2xl mx-auto pt-4 leading-relaxed">
+          🛡️ <strong>100% පළමු සතියේ වගකීම (Week 1 Satisfaction Guarantee):</strong> ජනවාරි 28 වන දින පැවැත්වෙන පළමු පැය 2ක සජීවී පන්තියට සහ පළමු මිනිත්තු 15ක AI කථන සැසියට සහභාගී වීමෙන් පසු, මෙම ක්‍රමවේදය ඔබට නොගැලපේ යැයි හැඟේ නම් පැය 24ක් ඇතුළත දැනුම් දී ඔබ ගෙවූ මුදල 100%ක් ආපසු ලබාගත හැක.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. LEGAL & IP COMPLIANT FOOTER -->
+  <footer class="bg-navy-950 border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div>
+        <div class="font-heading font-bold text-white text-sm">LEXORA ENGLISH ACADEMY™</div>
+        <p class="mt-1">© 2026–2027 Lexora English Academy. All Rights Reserved. Class 41 Proprietary Educational Material.</p>
+        <p class="mt-1 text-[11px] text-slate-500">
+          Accelerated English Memory Training™, The Pattern-Lock System™, The Sentence Skeleton™, and Language Engineered Through Memory Science™ are proprietary frameworks of Lexora English Academy.
+        </p>
+      </div>
+      <div class="text-center sm:text-right space-y-1">
+        <a href="https://wa.me/94788874444" class="text-gold font-bold block hover:underline">📞 Call / WhatsApp: +94 78 887 4444</a>
+        <span class="block text-slate-500">PDPA (Act No. 9 of 2022) Compliant Student Data Protection</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/94788874444?text=Hi%20Lexora%2C%20I%20want%20to%20register%20for%20the%20Jan%2021%20Free%20Masterclass"
+     target="_blank" rel="noopener"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 flex items-center justify-center shadow-2xl transition transform hover:scale-110"
+     title="WhatsApp හරහා සම්බන්ධ වන්න">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- PRE-FRAME BRIDGE MODAL (Qualifies Leads Before Sending to WhatsApp) -->
+  <div id="reg-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="navy-card rounded-2xl max-w-md w-full p-6 sm:p-8 border-2 border-gold relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">✕</button>
+      <span class="text-xs font-bold uppercase text-gold">නොමිලේ ආසනය වෙන්කරගන්න</span>
+      <h3 class="font-heading font-bold text-xl text-white mt-1 mb-2">
+        2027 ජනවාරි 21 (රාත්‍රී 7:30) Live Masterclass
+      </h3>
+      <p class="text-xs text-slate-300 mb-5">
+        පහත තොරතුරු ඇතුළත් කර අපගේ නිල WhatsApp සමූහයට සම්බන්ධ වී Zoom සබැඳිය සහ රු. 15,000 ශිෂ්‍යත්ව දීමනාව හිමිකර ගන්න:
+      </p>
+
+      <form onsubmit="submitPreFrame(event)" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">ඔබේ නම (Your Name) *</label>
+          <input type="text" id="student-name" required placeholder="උදා: Kasun Perera"
+                 class="w-full bg-navy-950 border border-white/20 rounded-lg px-3.5 py-2.5 text-white focus:border-gold outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">ඔබේ වත්මන් තත්ත්වය *</label>
+          <select id="student-segment" class="w-full bg-navy-950 border border-white/20 rounded-lg px-3.5 py-2.5 text-white focus:border-gold outline-none">
+            <option value="Post-A/L Student">උසස් පෙළ අවසන් කළ ශිෂ්‍යයෙක් (Post-A/L)</option>
+            <option value="University Undergraduate">විශ්වවිද්‍යාල ශිෂ්‍යයෙක් (Undergraduate)</option>
+            <option value="Job Seeker / Professional">රැකියා අපේක්ෂිත / වෘත්තිකයෙක්</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">ඔබට ඉංග්‍රීසි කතා කිරීමේදී ඇති ප්‍රධානම ගැටලුව *</label>
+          <select id="student-pain" class="w-full bg-navy-950 border border-white/20 rounded-lg px-3.5 py-2.5 text-white focus:border-gold outline-none">
+            <option value="Forgetting words & translating from Sinhala">වචන අමතක වීම සහ සිංහලෙන් පරිවර්තනය කිරීම</option>
+            <option value="Fear of speaking in interviews/public">සම්මුඛ සාකච්ඡා සහ පිරිසක් ඉදිරියේ කතා කිරීමට ඇති බිය</option>
+            <option value="Confused by grammar rules">ව්‍යාකරණ නීති පැටලීම</option>
+          </select>
+        </div>
+        <label class="flex items-start gap-2 text-[11px] text-slate-400 cursor-pointer">
+          <input type="checkbox" required checked class="mt-0.5 accent-gold" />
+          <span>ජනවාරි 21 Masterclass මතක් කිරීම් සහ Zoom Link එක WhatsApp හරහා ලබා ගැනීමට මම එකඟ වෙමි.</span>
+        </label>
+        <button type="submit" class="gold-btn w-full py-3.5 rounded-xl font-heading text-sm">
+          WhatsApp හරහා ආසනය තහවුරු කරන්න →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Interactive Sentence Skeleton Demo
+    const patterns = {
+      1: {
+        title: 'The Sentence Skeleton™ (අතීත රටාව):',
+        sentence: '[Yesterday] ➔ [I] ➔ [completed] ➔ [the project report.]',
+        desc: 'සිංහලෙන් පරිවර්තනය නොකර, කාලය (Time) මුලට දමා තත්පර 2න් වාක්‍යය ගොඩනඟයි.'
+      },
+      2: {
+        title: 'The Video Camera Rule™ (වර්තමාන ක්‍රියාව):',
+        sentence: '[Right now] ➔ [I] ➔ [am practicing] ➔ [with Lexora AI.]',
+        desc: 'දැන් වීඩියෝ කැමරාවකින් පටිගත කළ හැකි ක්‍රියාවක් නම් am/is/are + verb-ing ක්ෂණිකව යෙදේ.'
+      },
+      3: {
+        title: 'The Future Ladder™ (අනාගත සැලසුම):',
+        sentence: '[Next month] ➔ [I] ➔ [am going to start] ➔ [my new degree.]',
+        desc: 'Desire (will), Plan (going to) සහ Appointment පැටලීමකින් තොරව නිවැරදිව ප්‍රකාශ කරයි.'
+      }
+    };
+
+    function showPattern(id) {
+      const box = document.getElementById('pattern-output');
+      const p = patterns[id];
+      box.innerHTML = `
+        <div class="text-xs text-gold font-bold uppercase">${p.title}</div>
+        <div class="text-white font-semibold text-base">${p.sentence}</div>
+        <p class="text-xs text-slate-400">${p.desc}</p>
+      `;
+      [1, 2, 3].forEach(n => {
+        const btn = document.getElementById('pat-btn-' + n);
+        btn.className = (n === id)
+          ? 'bg-gold text-navy-950 font-bold text-xs py-2.5 px-3 rounded-lg transition'
+          : 'bg-navy-950 text-slate-300 border border-white/15 font-bold text-xs py-2.5 px-3 rounded-lg transition';
+      });
+    }
+
+    // Modal & Pre-Frame WhatsApp Redirect
+    function openModal() {
+      const m = document.getElementById('reg-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeModal() {
+      const m = document.getElementById('reg-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+    function submitPreFrame(e) {
+      e.preventDefault();
+      const name = document.getElementById('student-name').value.trim();
+      const seg = document.getElementById('student-segment').value;
+      const pain = document.getElementById('student-pain').value;
+      const msg = `Hi Lexora! මම ${name} (${seg}). මගේ ප්‍රධාන ගැටලුව: ${pain}. 2027 ජනවාරි 21 Free Masterclass එකට සහ රු. 15,000 ශිෂ්‍යත්ව දීමනාවට මාව ලියාපදිංචි කරන්න.`;
+      window.open(`https://wa.me/94788874444?text=${encodeURIComponent(msg)}`, '_blank');
+      closeModal();
+    }
+
+    // Scroll Reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>
